@@ -138,7 +138,7 @@
   .rmain{flex:1;min-width:0}
   .rtitle{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
   .cname{font-size:13.5px;font-weight:800;letter-spacing:-0.03em}
-  .tag{font-size:10.5px;font-weight:800;padding:2px 6px;border-radius:6px;letter-spacing:-0.01em;white-space:nowrap}
+  .tag{font-size:11px;font-weight:800;padding:2px 6px;border-radius:6px;letter-spacing:-0.01em;white-space:nowrap}
   .tag.pangyo{background:var(--violet-soft);color:var(--violet)}
   .tag.beomgye{background:var(--brand-soft);color:var(--brand)}
   .tag.best{background:var(--mint-soft);color:var(--mint)}
@@ -454,7 +454,7 @@
     </div>
     <div class="bullets">
       <div class="bl"><span class="bico">➕</span><div><b>표시가는 대부분 VAT 10% 별도</b><br><span class="s">9,900원이라도 실결제는 10,890원이에요. 위 스위치로 포함 금액을 바로 볼 수 있어요. (크림의원만 VAT 표기 미확인)</span></div></div>
-      <div class="bl"><span class="bico">🎫</span><div><b>첫방문·카톡플친·1일 횟수 제한</b><br><span class="s">데이뷰는 카카오톡 플러스친구 + 첫 내원 고객, 카테고리당 1개·1일 최대 3개까지. 에버스·유앤아이는 항목별 1회 제한이에요.</span></div></div>
+      <div class="bl"><span class="bico">🎫</span><div><b>첫방문·카톡플친·1일 횟수 제한</b><br><span class="s">데이뷰는 카카오톡 플러스친구 + 첫 내원 고객, 카테고리당 1개·1일 최대 3개까지. 에버스는 항목별 1회, 유앤아이는 판교점 내원 고객 대상 11월 이벤트예요.</span></div></div>
       <div class="bl"><span class="bico">📅</span><div><b>이벤트 기간</b><br><span class="s">톡스앤필은 2026-11-30까지, 유앤아이 11월 한정, 쁨 첫방문은 2026-12-31까지. 밴스는 "1회 체험가"라 별도 첫방문 조건 없이 조기 종료될 수 있어요.</span></div></div>
       <div class="bl"><span class="bico">🧪</span><div><b>같은 이름도 범위가 달라요</b><br><span class="s">샷 수(100·300샷), 용량(1cc·2cc), 제품(국산·독일·미국), 마취·애프터케어 포함 여부로 실제 금액이 달라집니다. 표는 같은 조건끼리 묶어 낮은 가격순으로 정렬했어요.</span></div></div>
       <div class="bl"><span class="bico">❓</span><div><b>확인 못 한 것</b><br><span class="s">크림의원 VAT 포함 여부, 뮤즈·샤인엘의 정확한 주소·영업시간, 각 병원의 진단기 보유 여부(밴스·에버스는 홈페이지 미안내)는 방문 전 전화·카톡 확인이 필요해요.</span></div></div>
@@ -844,7 +844,7 @@
         '</div>';
       }
       html += '<div class="grp">' +
-        '<div class="grphead"><span class="bar"></span><h3>' + g.title + '</h3><span class="cnt">' + items.length + '</span></div>' +
+        '<div class="grphead"><span class="bar"></span><h3>' + g.title + '</h3><span class="cnt">' + items.length + '개</span></div>' +
         (g.note ? '<div class="grpnote">' + g.note + '</div>' : '') +
         '<div class="rows">' + rows + '</div>' +
       '</div>';
