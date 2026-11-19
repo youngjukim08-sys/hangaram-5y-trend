@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light" />
+<title>판교·범계 피부과 가격 비교 | 2026.11.19</title>
+<style>
+  :root{
+    --bg:#F2F4F6; --card:#FFFFFF; --ink:#191F28; --sub:#6B7684; --tert:#8B95A1;
+    --line:#EDEFF3; --line2:#E3E7EC;
+    --brand:#3182F6; --brand-soft:#E8F1FE;
+    --rose:#F45B78; --rose-soft:#FDECF0;
+    --mint:#00A96E; --mint-soft:#E4F7EF;
+    --amber:#E8930C; --amber-soft:#FFF3DE;
+    --violet:#7A5AF8; --violet-soft:#F0EDFE;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic","Noto Sans KR",sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.5;
+    font-variant-numeric:tabular-nums;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit}
+  .wrap{max-width:900px;margin:0 auto;padding:14px 14px 64px}
+  @media(min-width:768px){ .wrap{padding:28px 24px 80px} }
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:linear-gradient(158deg,#FFFFFF 0%,#F8FAFF 58%,#FFF3F6 100%);
+    border-radius:24px; padding:22px 20px 20px;
+    box-shadow:0 1px 2px rgba(20,30,50,.04);
+  }
+  @media(min-width:768px){ .hero{padding:32px 30px 28px} }
+  .eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:800;color:var(--brand);letter-spacing:0.01em}
+  .eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--brand);display:inline-block}
+  .hero h1{font-size:27px;line-height:1.22;margin:10px 0 6px;font-weight:800;letter-spacing:-0.045em}
+  @media(min-width:768px){ .hero h1{font-size:34px} }
+  .hero p{margin:0;font-size:14px;color:var(--sub);letter-spacing:-0.02em}
+  .hero .hl{color:var(--ink);font-weight:700}
+  .metarow{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .meta{font-size:11.5px;font-weight:700;color:var(--sub);background:#fff;border:1px solid var(--line2);border-radius:999px;padding:5px 10px}
+  .meta b{color:var(--ink);font-weight:800}
+
+  /* ---------- 요약 3줄 ---------- */
+  .summary{margin-top:10px;background:var(--card);border-radius:22px;padding:6px 4px;box-shadow:0 1px 2px rgba(20,30,50,.04)}
+  .sumrow{display:flex;gap:12px;align-items:flex-start;padding:13px 16px}
+  .sumrow + .sumrow{border-top:1px solid var(--line)}
+  .sumico{flex:0 0 30px;width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px}
+  .sumtxt{flex:1;min-width:0}
+  .sumtxt .k{font-size:11.5px;font-weight:800;color:var(--tert);letter-spacing:0.01em}
+  .sumtxt .v{font-size:14px;font-weight:700;letter-spacing:-0.025em;margin-top:1px}
+  .sumtxt .v em{font-style:normal;color:var(--brand);font-weight:800}
+  .sumtxt .s{font-size:12.5px;color:var(--sub);margin-top:2px;letter-spacing:-0.02em}
+
+  /* ---------- sticky filter ---------- */
+  .sticky{
+    position:sticky; top:0; z-index:30;
+    margin:14px -14px 0; padding:9px 14px 10px;
+    background:rgba(242,244,246,.94);
+    -webkit-backdrop-filter:saturate(180%) blur(14px); backdrop-filter:saturate(180%) blur(14px);
+    border-bottom:1px solid rgba(0,0,0,.04);
+  }
+  @media(min-width:768px){ .sticky{margin-left:-24px;margin-right:-24px;padding-left:24px;padding-right:24px} }
+
+  .chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:2px}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{
+    flex:0 0 auto;appearance:none;border:1px solid var(--line2);background:#fff;color:var(--sub);
+    font:inherit;font-size:13px;font-weight:700;letter-spacing:-0.02em;
+    padding:7px 13px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s,border-color .15s;
+  }
+  .chip .n{font-size:11.5px;font-weight:700;color:var(--tert);margin-left:4px}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+  .chip[aria-pressed="true"] .n{color:rgba(255,255,255,.62)}
+
+  .tabs{
+    display:flex;gap:2px;margin-top:8px;padding:3px;background:#E6E9ED;border-radius:14px;overflow-x:auto;scrollbar-width:none
+  }
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{
+    flex:1 0 auto;appearance:none;border:0;background:transparent;color:var(--sub);
+    font:inherit;font-size:13px;font-weight:700;letter-spacing:-0.02em;white-space:nowrap;
+    padding:9px 12px;border-radius:11px;cursor:pointer;transition:background .16s,color .16s,box-shadow .16s
+  }
+  .tab .em{margin-right:3px}
+  .tab[aria-selected="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(20,30,50,.10)}
+  .tab[aria-selected="true"] .em{filter:none}
+
+  /* ---------- card/section ---------- */
+  .sec{margin-top:10px;background:var(--card);border-radius:22px;padding:18px 16px 16px;box-shadow:0 1px 2px rgba(20,30,50,.04)}
+  @media(min-width:768px){ .sec{padding:22px 22px 20px} }
+  .sechead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:12px}
+  .sec h2{font-size:17px;font-weight:800;margin:0;letter-spacing:-0.035em}
+  @media(min-width:768px){ .sec h2{font-size:19px} }
+  .sechint{font-size:11.5px;color:var(--tert);font-weight:700;white-space:nowrap}
+  .lead{font-size:13px;color:var(--sub);margin:-4px 0 14px;letter-spacing:-0.02em;line-height:1.6}
+
+  /* ---------- guide ---------- */
+  .guides{display:grid;grid-template-columns:1fr;gap:8px}
+  @media(min-width:620px){ .guides{grid-template-columns:1fr 1fr} }
+  .g{
+    border:1px solid var(--line2);border-radius:16px;padding:14px 14px 12px;background:#fff;
+    display:flex;flex-direction:column;gap:8px
+  }
+  .g.pico{background:linear-gradient(170deg,#F6FAFF,#fff);border-color:#DCE9FD}
+  .g.ipl{background:linear-gradient(170deg,#FFF8EE,#fff);border-color:#F7E4C6}
+  .g.ruby{background:linear-gradient(170deg,#FFF1F4,#fff);border-color:#FBD7DF}
+  .g.repot{background:linear-gradient(170deg,#F5F3FF,#fff);border-color:#E3DCFC}
+  .gtop{display:flex;align-items:center;gap:8px}
+  .gname{font-size:14.5px;font-weight:800;letter-spacing:-0.03em}
+  .gwave{font-size:11px;font-weight:800;color:var(--tert);border:1px solid var(--line2);border-radius:6px;padding:1px 5px;background:#fff}
+  .gspec{display:flex;flex-direction:column;gap:4px;font-size:12.5px;letter-spacing:-0.02em}
+  .gspec .r{display:flex;gap:8px}
+  .gspec .key{flex:0 0 56px;color:var(--tert);font-weight:700}
+  .gspec .val{color:var(--ink);font-weight:600;flex:1;min-width:0}
+  .gfoot{margin-top:auto;padding-top:8px;border-top:1px dashed var(--line2);font-size:12.5px;font-weight:700;letter-spacing:-0.02em;color:var(--ink)}
+  .gfoot span{display:block;font-size:11.5px;font-weight:600;color:var(--sub);margin-top:1px}
+  .mela{display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:800;padding:2px 6px;border-radius:6px}
+  .mela.safe{background:var(--mint-soft);color:var(--mint)}
+  .mela.care{background:var(--amber-soft);color:var(--amber)}
+  .mela.risk{background:var(--rose-soft);color:var(--rose)}
+
+  /* ---------- 그룹/행 ---------- */
+  .groups{display:flex;flex-direction:column;gap:18px}
+  .grp{ }
+  .grphead{display:flex;align-items:center;gap:7px;margin-bottom:2px}
+  .grphead .bar{width:3px;height:13px;border-radius:2px;background:var(--brand)}
+  .grphead h3{font-size:13.5px;font-weight:800;margin:0;letter-spacing:-0.03em}
+  .grphead .cnt{font-size:11.5px;color:var(--tert);font-weight:700}
+  .grpnote{font-size:11.5px;color:var(--sub);margin:3px 0 0 10px;letter-spacing:-0.02em}
+  .rows{margin-top:6px}
+  .row{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+  .rows .row:first-child{border-top:0;padding-top:6px}
+  .rmain{flex:1;min-width:0}
+  .rtitle{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .cname{font-size:13.5px;font-weight:800;letter-spacing:-0.03em}
+  .tag{font-size:10.5px;font-weight:800;padding:2px 6px;border-radius:6px;letter-spacing:-0.01em;white-space:nowrap}
+  .tag.pangyo{background:var(--violet-soft);color:var(--violet)}
+  .tag.beomgye{background:var(--brand-soft);color:var(--brand)}
+  .tag.best{background:var(--mint-soft);color:var(--mint)}
+  .tag.sun{background:var(--amber-soft);color:var(--amber)}
+  .rsub{font-size:12.5px;color:var(--sub);margin-top:2px;letter-spacing:-0.025em}
+  .rsub .cond{color:var(--rose);font-weight:700}
+  .rnote{font-size:11.5px;color:var(--tert);margin-top:3px;letter-spacing:-0.02em;line-height:1.45}
+  .rprice{flex:0 0 auto;text-align:right;padding-top:1px}
+  .won{font-size:15px;font-weight:800;letter-spacing:-0.03em;white-space:nowrap}
+  .won small{font-size:11px;font-weight:700;color:var(--sub);margin-left:1px}
+  .vatflag{display:inline-block;font-size:10px;font-weight:800;color:var(--brand);background:var(--brand-soft);border-radius:5px;padding:1px 4px;margin-left:4px;vertical-align:2px}
+  .orig{display:block;font-size:11px;color:#AEB6C0;text-decoration:line-through;margin-top:1px;white-space:nowrap}
+  .empty{padding:26px 6px;text-align:center;color:var(--tert);font-size:13px;font-weight:600}
+
+  /* ---------- 옵션 토글 ---------- */
+  .optrow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px;padding:10px 12px;background:#F7F8FA;border-radius:12px}
+  .optrow .otxt{font-size:12.5px;font-weight:700;letter-spacing:-0.02em}
+  .optrow .otxt span{display:block;font-size:11px;color:var(--tert);font-weight:600;margin-top:1px}
+  .switch{flex:0 0 auto;appearance:none;border:0;width:46px;height:27px;border-radius:999px;background:#D5DAE0;position:relative;cursor:pointer;transition:background .18s;padding:0}
+  .switch::after{content:"";position:absolute;top:3px;left:3px;width:21px;height:21px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.18);transition:transform .18s}
+  .switch[aria-pressed="true"]{background:var(--brand)}
+  .switch[aria-pressed="true"]::after{transform:translateX(19px)}
+
+  /* ---------- 추천 카드 ---------- */
+  .picks{display:grid;grid-template-columns:1fr;gap:8px}
+  @media(min-width:680px){ .picks{grid-template-columns:1fr 1fr} }
+  .pick{border:1px solid var(--line2);border-radius:18px;padding:15px 15px 13px;background:#fff;display:flex;flex-direction:column;gap:9px}
+  .picktop{display:flex;align-items:center;gap:9px}
+  .pickico{flex:0 0 32px;width:32px;height:32px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:16px}
+  .picktitle{font-size:14px;font-weight:800;letter-spacing:-0.03em;line-height:1.35}
+  .pickdesc{font-size:12.5px;color:var(--sub);letter-spacing:-0.02em;line-height:1.55}
+  .pickset{display:flex;flex-direction:column;gap:5px;margin-top:auto;padding-top:9px;border-top:1px dashed var(--line2)}
+  .pickset .pi{display:flex;align-items:baseline;justify-content:space-between;gap:8px;font-size:12.5px;letter-spacing:-0.02em}
+  .pickset .pi b{font-weight:800}
+  .pickset .pi .pr{font-weight:800;white-space:nowrap}
+  .pickset .pi .pr.low{color:var(--brand)}
+
+  /* ---------- 병원 카드 ---------- */
+  .clinics{display:grid;grid-template-columns:1fr;gap:8px}
+  @media(min-width:680px){ .clinics{grid-template-columns:1fr 1fr} }
+  .clinic{border:1px solid var(--line2);border-radius:18px;padding:14px 14px 12px;background:#fff}
+  .clinic.hide{display:none}
+  .ctop{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .cname2{font-size:14px;font-weight:800;letter-spacing:-0.03em}
+  .crate{font-size:11.5px;font-weight:800;color:var(--amber);margin-left:auto;white-space:nowrap}
+  .crate b{color:var(--ink)}
+  .crate span{color:var(--tert);font-weight:700}
+  .caddr{font-size:12px;color:var(--sub);margin-top:5px;letter-spacing:-0.02em}
+  .crows{margin-top:8px;display:flex;flex-direction:column;gap:3px}
+  .crow{display:flex;gap:7px;font-size:12px;letter-spacing:-0.02em}
+  .crow .k{flex:0 0 52px;color:var(--tert);font-weight:700}
+  .crow .v{flex:1;min-width:0;color:var(--ink);font-weight:600}
+  .crow .v.warn{color:var(--rose)}
+  .crow .v.ok{color:var(--mint)}
+  .clink{display:inline-block;margin-top:9px;font-size:11.5px;font-weight:800;color:var(--brand);text-decoration:none}
+  .clink:after{content:" ↗"}
+
+  /* ---------- 주의 ---------- */
+  .warnbox{border-radius:14px;padding:13px 14px;font-size:12.5px;line-height:1.6;letter-spacing:-0.02em}
+  .warnbox.rose{background:var(--rose-soft);color:#9F2740}
+  .warnbox b{font-weight:800}
+  .bullets{display:flex;flex-direction:column;gap:9px}
+  .bl{display:flex;gap:9px;font-size:13px;letter-spacing:-0.02em;line-height:1.55}
+  .bl .bico{flex:0 0 20px;font-size:14px;line-height:1.5}
+  .bl b{font-weight:800}
+  .bl span.s{color:var(--sub)}
+  .inlinechips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+  .tiny{font-size:10.5px;font-weight:800;padding:2px 6px;border-radius:6px;background:#F4F6F8;color:var(--sub)}
+
+  footer{margin-top:18px;padding:0 6px;font-size:11.5px;color:var(--tert);line-height:1.7;letter-spacing:-0.01em}
+  footer b{color:var(--sub)}
+  .topbtn{display:block;width:100%;margin-top:14px;appearance:none;border:0;background:#fff;border:1px solid var(--line2);border-radius:14px;padding:12px;font:inherit;font-size:13px;font-weight:800;color:var(--sub);cursor:pointer}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow"><span class="dot"></span>2026.11.19 조사 · 병원 공식 홈페이지 게시 기준</div>
+    <h1>판교·범계 피부과<br>가격 한눈에 비교</h1>
+    <p>주근깨·잡티 <span class="hl">색소 레이저</span>부터 보톡스·리프팅·스킨부스터까지<br><span class="hl">9곳</span>의 공개 가격을 한 페이지에 모았어요.</p>
+    <div class="metarow">
+      <span class="meta">총 <b>9곳</b></span>
+      <span class="meta">판교 <b>2</b> · 범계 <b>7</b></span>
+      <span class="meta">가격 항목 <b id="metaCount">–</b>개</span>
+      <span class="meta">최저 피코토닝 <b>9,900원</b></span>
+    </div>
+  </header>
+
+  <section class="summary" aria-label="핵심 요약">
+    <div class="sumrow">
+      <div class="sumico" style="background:var(--brand-soft)">🧊</div>
+      <div class="sumtxt">
+        <div class="k">가장 싼 토닝</div>
+        <div class="v">에버스 범계 <em>레이저토닝 4,000원</em> / 피코토닝 9,900원</div>
+        <div class="s">첫방문 조건 · VAT 10% 별도 → 실결제 4,400원 / 10,890원</div>
+      </div>
+    </div>
+    <div class="sumrow">
+      <div class="sumico" style="background:var(--rose-soft)">✨</div>
+      <div class="sumtxt">
+        <div class="k">주근깨 한 번에 (딱지 감수)</div>
+        <div class="v">유앤아이 판교 <em>루비+크라이오 250,000원</em></div>
+        <div class="s">694nm 루비 · 11월 이벤트(정가 40~45만 원) · 판교역 도보 9분</div>
+      </div>
+    </div>
+    <div class="sumrow">
+      <div class="sumico" style="background:var(--mint-soft)">🔍</div>
+      <div class="sumtxt">
+        <div class="k">진단부터 토닝까지 원스톱</div>
+        <div class="v">뮤즈 안양 <em>첫방문 토닝 1+1 · 99,000원</em></div>
+        <div class="s">야누스 피부진단 + 피코슈어pro/레블라이트 + 크라이오 + 모델링</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sticky">
+    <div class="chips" id="regionChips" role="group" aria-label="지역 필터">
+      <button class="chip" data-region="all" aria-pressed="true">전체 <span class="n" id="cntAll">–</span></button>
+      <button class="chip" data-region="pangyo" aria-pressed="false">판교 <span class="n" id="cntPangyo">–</span></button>
+      <button class="chip" data-region="beomgye" aria-pressed="false">범계·평촌 <span class="n" id="cntBeomgye">–</span></button>
+    </div>
+    <div class="tabs" id="tabs" role="tablist" aria-label="시술 카테고리">
+      <button class="tab" role="tab" data-cat="pigment" aria-selected="true"><span class="em">🎯</span>색소·잡티</button>
+      <button class="tab" role="tab" data-cat="botox" aria-selected="false"><span class="em">💉</span>보톡스·윤곽</button>
+      <button class="tab" role="tab" data-cat="lifting" aria-selected="false"><span class="em">⬆️</span>리프팅</button>
+      <button class="tab" role="tab" data-cat="booster" aria-selected="false"><span class="em">💧</span>스킨부스터·관리</button>
+    </div>
+  </div>
+
+  <!-- 색소 레이저 가이드 -->
+  <section class="sec" id="guideSec">
+    <div class="sechead">
+      <h2>색소 레이저 4종, 뭐가 다른가요</h2>
+      <span class="sechint">딱지·다운타임 비교</span>
+    </div>
+    <p class="lead">같은 "주근깨 레이저"라도 방식이 완전히 달라요. 옅고 넓게 퍼진 색소는 토닝, 또렷한 주근깨는 IPL·루비, 큰 흑자 한 개는 리팟이 맞습니다.</p>
+    <div class="guides">
+      <div class="g pico">
+        <div class="gtop"><span class="gname">피코토닝</span><span class="gwave">755nm · 피코초</span></div>
+        <div class="gspec">
+          <div class="r"><span class="key">원리</span><span class="val">낮은 출력으로 색소를 잘게 부숴 서서히 배출</span></div>
+          <div class="r"><span class="key">딱지</span><span class="val">거의 없음 (아주 얇게 살짝)</span></div>
+          <div class="r"><span class="key">다운타임</span><span class="val">당일 세안·화장 가능</span></div>
+          <div class="r"><span class="key">속도</span><span class="val">느림 · 보통 5~10회 이상</span></div>
+          <div class="r"><span class="key">기미</span><span class="val"><span class="mela safe">비교적 안전</span></span></div>
+        </div>
+        <div class="gfoot">4,000~30,000원 / 회<span>에버스 4,000원(레이저토닝) · 9,900원(피코토닝) ~ 유앤아이 30,000원</span></div>
+      </div>
+
+      <div class="g ipl">
+        <div class="gtop"><span class="gname">IPL</span><span class="gwave">넓은 파장 · 표피</span></div>
+        <div class="gspec">
+          <div class="r"><span class="key">원리</span><span class="val">넓은 파장의 빛을 표피 색소에 한 번에 조사</span></div>
+          <div class="r"><span class="key">딱지</span><span class="val">얇고 고운 딱지 5~7일</span></div>
+          <div class="r"><span class="key">다운타임</span><span class="val">3~5일 (화장 가능)</span></div>
+          <div class="r"><span class="key">속도</span><span class="val">2~3회에 걸쳐 옅어짐</span></div>
+          <div class="r"><span class="key">기미</span><span class="val"><span class="mela care">자극 주의</span></span></div>
+        </div>
+        <div class="gfoot">50,000원 / 회<span>뮤즈 안양 IPL 1회 50,000원 (VAT 별도)</span></div>
+      </div>
+
+      <div class="g ruby">
+        <div class="gtop"><span class="gname">루비레이저</span><span class="gwave">694nm</span></div>
+        <div class="gspec">
+          <div class="r"><span class="key">원리</span><span class="val">멜라닌에 강하게 반응해 색소를 직접 파괴</span></div>
+          <div class="r"><span class="key">딱지</span><span class="val">진하고 확실한 딱지 7~10일</span></div>
+          <div class="r"><span class="key">다운타임</span><span class="val">약 1주 (딱지 떨어질 때까지)</span></div>
+          <div class="r"><span class="key">속도</span><span class="val">1회 효과 강함</span></div>
+          <div class="r"><span class="key">기미</span><span class="val"><span class="mela risk">섞여 있으면 위험</span></span></div>
+        </div>
+        <div class="gfoot">250,000원 / 회<span>유앤아이 판교 루비+크라이오 250,000원 (11월 이벤트)</span></div>
+      </div>
+
+      <div class="g repot">
+        <div class="gtop"><span class="gname">리팟레이저</span><span class="gwave">흑자·검버섯</span></div>
+        <div class="gspec">
+          <div class="r"><span class="key">원리</span><span class="val">경계가 뚜렷한 국소 색소(흑자)를 한 점씩 제거</span></div>
+          <div class="r"><span class="key">딱지</span><span class="val">국소적으로 진하게</span></div>
+          <div class="r"><span class="key">다운타임</span><span class="val">1~2주 (부위에 따라)</span></div>
+          <div class="r"><span class="key">적합</span><span class="val">10mm 이내 큰 흑자 1개</span></div>
+          <div class="r"><span class="key">기미</span><span class="val"><span class="mela risk">대상 아님</span></span></div>
+        </div>
+        <div class="gfoot">290,000원 / 개<span>밴스 판교 리팟 10mm 이내 1개 290,000원 (1회 체험가)</span></div>
+      </div>
+    </div>
+
+    <div class="warnbox rose" style="margin-top:10px">
+      <b>흉터는 안 생기지만, 딱지는 생겨요.</b> IPL·루비는 살을 깎는 시술이 아니라 색소만 태워 얇은 딱지가 앉았다 떨어지는 방식이에요. <b>딱지를 손으로 떼면 붉은 자국·색소침착</b>이 남을 수 있으니 자연 탈락만 기다리고, 보름 정도 <b>선크림</b>을 꼼꼼히 발라야 해요. 기미가 섞여 있으면 세게 쏘는 IPL·루비가 오히려 색을 진하게 만들 수 있어 <b>시술 전 진단(야누스·마크뷰)</b>이 가장 중요합니다.
+    </div>
+  </section>
+
+  <!-- 리스트 -->
+  <section class="sec">
+    <div class="sechead">
+      <h2 id="listTitle">색소·잡티 가격 비교</h2>
+      <span class="sechint" id="listCount">–</span>
+    </div>
+
+    <div class="optrow">
+      <div class="otxt">부가세 포함해서 보기
+        <span>모든 가격은 VAT 10% 별도예요 (크림의원만 미확인)</span>
+      </div>
+      <button class="switch" id="vatSwitch" aria-pressed="false" aria-label="부가세 포함 금액 보기"></button>
+    </div>
+
+    <div class="groups" id="groupList"></div>
+  </section>
+
+  <!-- 추천 -->
+  <section class="sec" id="pickSec">
+    <div class="sechead">
+      <h2>상황별 추천</h2>
+      <span class="sechint">오늘 상담 기준</span>
+    </div>
+    <div class="picks">
+      <div class="pick">
+        <div class="picktop">
+          <div class="pickico" style="background:var(--mint-soft)">💰</div>
+          <div class="picktitle">가볍게 첫방문 가성비</div>
+        </div>
+        <div class="pickdesc">부담 없이 톤만 정리하고 싶을 때. 첫방문 조건만 확인하면 1만 원 이하로 시작할 수 있어요.</div>
+        <div class="pickset">
+          <div class="pi"><span>닥터에버스 범계 · 레이저토닝 1회</span><span class="pr low">4,000원</span></div>
+          <div class="pi"><span>닥터에버스 범계 · 피코토닝 1회</span><span class="pr">9,900원</span></div>
+          <div class="pi"><span>밴스 판교 · 피코토닝+크라이오</span><span class="pr">19,000원</span></div>
+        </div>
+      </div>
+
+      <div class="pick">
+        <div class="picktop">
+          <div class="pickico" style="background:var(--rose-soft)">⚡</div>
+          <div class="picktitle">주근깨·잡티 빠른 제거</div>
+        </div>
+        <div class="pickdesc">1~2번 만에 확실히 지우고 싶을 때. 딱지 1주일은 각오하고, 기미가 섞였는지 먼저 확인하세요.</div>
+        <div class="pickset">
+          <div class="pi"><span>유앤아이 판교 · 루비+크라이오</span><span class="pr low">250,000원</span></div>
+          <div class="pi"><span>샤인엘 범계 · 복합 색소 5회</span><span class="pr">1,000,000원</span></div>
+          <div class="pi"><span>뮤즈 안양 · IPL 1회</span><span class="pr">50,000원</span></div>
+        </div>
+      </div>
+
+      <div class="pick">
+        <div class="picktop">
+          <div class="pickico" style="background:var(--amber-soft)">🔬</div>
+          <div class="picktitle">기미인지부터 확인 (진단 우선)</div>
+        </div>
+        <div class="pickdesc">기미가 조금이라도 의심되면 강한 레이저보다 진단 → 토닝 순서가 안전해요.</div>
+        <div class="pickset">
+          <div class="pi"><span>뮤즈 안양 · 첫방문 토닝 1+1 (야누스 진단)</span><span class="pr low">99,000원</span></div>
+          <div class="pi"><span>샤인엘 범계 · 마크뷰 진단 포함 5회</span><span class="pr">1,000,000원</span></div>
+          <div class="pi"><span>에버스 범계 · 피코슈어토닝 1회</span><span class="pr">35,000원~</span></div>
+        </div>
+      </div>
+
+      <div class="pick">
+        <div class="picktop">
+          <div class="pickico" style="background:var(--brand-soft)">🧾</div>
+          <div class="picktitle">과잉진료 없이 + 온누리 결제</div>
+        </div>
+        <div class="pickdesc">후기 좋고 상품권 결제가 확인된 곳. 강매 없이 필요한 것만 받기 좋아요.</div>
+        <div class="pickset">
+          <div class="pi"><span>닥터에버스 범계 · 구글 5.0 (210건)</span><span class="pr">온누리카드 O</span></div>
+          <div class="pi"><span>잡티레이저 · 개당</span><span class="pr low">10,000원</span></div>
+          <div class="pi"><span>잡티레이저 · 얼굴 전체 1회</span><span class="pr">129,000원</span></div>
+        </div>
+      </div>
+
+      <div class="pick">
+        <div class="picktop">
+          <div class="pickico" style="background:var(--violet-soft)">🚇</div>
+          <div class="picktitle">퇴근 후 · 주말 진료</div>
+        </div>
+        <div class="pickdesc">평일 20:30까지는 범계 4곳, 일요일 진료는 판교 밴스가 유일해요.</div>
+        <div class="pickset">
+          <div class="pi"><span>밴스 판교 · 일요일 10:00–18:00</span><span class="pr low">일요일 O</span></div>
+          <div class="pi"><span>톡스앤필·데이뷰·에버스·크림 · 평일 20:30</span><span class="pr">야간 O</span></div>
+          <div class="pi"><span>판교 → 범계 이동 없이 해결</span><span class="pr">유앤아이 판교</span></div>
+        </div>
+      </div>
+
+      <div class="pick">
+        <div class="picktop">
+          <div class="pickico" style="background:#F1F3F5">🅿️</div>
+          <div class="picktitle">차로 갈 때</div>
+        </div>
+        <div class="pickdesc">주차 안내가 공개된 곳은 두 곳이에요. 건물 주차는 만차일 수 있어 방문 전 확인이 좋아요.</div>
+        <div class="pickset">
+          <div class="pi"><span>톡스앤필 안양 · 지하 1시간 무료</span><span class="pr">범계</span></div>
+          <div class="pi"><span>유앤아이 판교 · 지하 2시간 무료</span><span class="pr">판교</span></div>
+          <div class="pi"><span>에메랄드빌딩 10·12층 (에버스·톡스앤필)</span><span class="pr">한 건물</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 병원 정보 -->
+  <section class="sec" id="clinicSec">
+    <div class="sechead">
+      <h2>병원별 위치·영업시간·결제</h2>
+      <span class="sechint">9곳</span>
+    </div>
+    <div class="clinics" id="clinicList"></div>
+    <div class="warnbox" style="background:#F7F8FA;color:var(--sub);margin-top:10px">
+      <b style="color:var(--ink)">온누리상품권 메모</b> — 2026-11-19 기준 디지털 온누리 할인은 예산 소진으로 <b style="color:var(--ink)">0%</b>, 10% 특별할인은 명절·정부 행사 때만 며칠 열려요. 결제 가능 여부가 확인된 곳은 <b style="color:var(--ink)">닥터에버스 범계(충전식 온누리카드)</b>이고, 첫방문·11월 이벤트가에도 적용되는지·모바일 QR 가능 여부는 카운터 확인이 필요해요.
+    </div>
+  </section>
+
+  <!-- 주의 -->
+  <section class="sec">
+    <div class="sechead">
+      <h2>가격 볼 때 꼭 확인할 것</h2>
+    </div>
+    <div class="bullets">
+      <div class="bl"><span class="bico">➕</span><div><b>표시가는 대부분 VAT 10% 별도</b><br><span class="s">9,900원이라도 실결제는 10,890원이에요. 위 스위치로 포함 금액을 바로 볼 수 있어요. (크림의원만 VAT 표기 미확인)</span></div></div>
+      <div class="bl"><span class="bico">🎫</span><div><b>첫방문·카톡플친·1일 횟수 제한</b><br><span class="s">데이뷰는 카카오톡 플러스친구 + 첫 내원 고객, 카테고리당 1개·1일 최대 3개까지. 에버스·유앤아이는 항목별 1회 제한이에요.</span></div></div>
+      <div class="bl"><span class="bico">📅</span><div><b>이벤트 기간</b><br><span class="s">톡스앤필은 2026-11-30까지, 유앤아이 11월 한정, 쁨 첫방문은 2026-12-31까지. 밴스는 "1회 체험가"라 별도 첫방문 조건 없이 조기 종료될 수 있어요.</span></div></div>
+      <div class="bl"><span class="bico">🧪</span><div><b>같은 이름도 범위가 달라요</b><br><span class="s">샷 수(100·300샷), 용량(1cc·2cc), 제품(국산·독일·미국), 마취·애프터케어 포함 여부로 실제 금액이 달라집니다. 표는 같은 조건끼리 묶어 낮은 가격순으로 정렬했어요.</span></div></div>
+      <div class="bl"><span class="bico">❓</span><div><b>확인 못 한 것</b><br><span class="s">크림의원 VAT 포함 여부, 뮤즈·샤인엘의 정확한 주소·영업시간, 각 병원의 진단기 보유 여부(밴스·에버스는 홈페이지 미안내)는 방문 전 전화·카톡 확인이 필요해요.</span></div></div>
+    </div>
+  </section>
+
+  <footer>
+    <b>자료 출처</b> — 각 병원 공식 홈페이지의 시술소개·이벤트·비급여 수가표를 2026-11-19에 직접 열어 확인한 값입니다. 위치·평점은 카카오/구글 지도 조회값. 이벤트는 예고 없이 조기 종료·구성 변경될 수 있고, 표의 값은 홈페이지 게시가이므로 실제 결제액은 상담에서 달라질 수 있습니다. 의료 진단·처방을 대신하지 않습니다.
+    <button class="topbtn" id="topBtn">맨 위로</button>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  window.__errs = [];
+  window.onerror = function(m){ window.__errs.push(String(m)); document.documentElement.setAttribute('data-js-errors', String(window.__errs.length)); };
+
+  var CLINICS = {
+    vands: { key:'vands', name:'밴스의원 판교점', short:'밴스', region:'pangyo', regionLabel:'판교',
+      addr:'성남시 분당구 분당내곡로 117 그레이츠판교 3층', access:'판교역 2번출구 도보 3분 (0.2km)',
+      rating:'4.9', reviews:'800', hours:'평일 10:00–20:00 / 토·일 10:00–18:00',
+      vat:'별도', onnuri:'미확인', diag:'미안내', extra:'일요일 진료 · 재방문은 정가 기준',
+      url:'https://pangyo.vandsclinics.com/' },
+    uni: { key:'uni', name:'유앤아이피부과의원 판교점', short:'유앤아이', region:'pangyo', regionLabel:'판교',
+      addr:'성남시 분당구 판교역로192번길 12 판교미래에셋센터 2층', access:'판교역 도보 9분 (0.6km)',
+      rating:'3.6', reviews:'27', hours:'평일 09:30–20:30 (점심 13–14) / 토 09:00–16:00 / 일 휴진',
+      vat:'별도', onnuri:'미확인', diag:'미확인', extra:'주차 지하 2시간 무료',
+      url:'https://www.pguni114.co.kr/' },
+    evers: { key:'evers', name:'닥터에버스의원 범계점', short:'에버스', region:'beomgye', regionLabel:'범계',
+      addr:'안양시 동안구 시민대로 202 에메랄드빌딩 10층 1001호', access:'범계역 1번출구 도보 4분',
+      rating:'5.0', reviews:'210', hours:'평일 10:30–20:30 (점심 14–15) / 토 10:00–16:30 / 일 휴진',
+      vat:'별도', onnuri:'충전식 카드형 O (후기)', diag:'미안내', extra:'첫방문 이벤트 카톡플친 · 항목별 1회',
+      url:'https://beomgye.drevers.com/' },
+    tox: { key:'tox', name:'톡스앤필의원 안양점', short:'톡스앤필', region:'beomgye', regionLabel:'범계',
+      addr:'안양시 동안구 시민대로 202 에메랄드빌딩 12층', access:'범계역 1번출구 250m (도보 6~8분)',
+      rating:'4.2', reviews:'22', hours:'평일 10:30–20:30 / 토 10:30–17:00 / 일 휴진',
+      vat:'별도', onnuri:'미확인', diag:'미확인', extra:'주차 지하 1시간 무료 · 이벤트 ~11/30',
+      url:'http://www.toxnfill28.com/' },
+    day: { key:'day', name:'데이뷰의원 안양범계점', short:'데이뷰', region:'beomgye', regionLabel:'범계',
+      addr:'안양시 동안구 평촌대로211번길 16 삼희월드프라자 9층', access:'범계역 도보 8분 (0.5km)',
+      rating:'5.0', reviews:'21', hours:'평일 10:30–20:30 / 토 10:00–16:30 / 일 휴진',
+      vat:'별도', onnuri:'미확인', diag:'미확인', extra:'첫방문=카톡플친+첫 내원 · 카테고리당 1개·1일 3개까지',
+      url:'https://www.daybeauclinic06.com/' },
+    ppeum: { key:'ppeum', name:'범계예쁨주의쁨의원', short:'쁨', region:'beomgye', regionLabel:'범계',
+      addr:'안양시 동안구 시민대로 206 인탑스빌딩 6층', access:'범계역 1번출구 도보 2분',
+      rating:'4.4', reviews:'10', hours:'평일 10:30–20:00 (점심 13–14) / 토 10:30–17:00 / 일 휴진',
+      vat:'별도', onnuri:'미확인', diag:'미확인', extra:'브랜드명 PPEUM · 원장 지정 불가',
+      url:'http://www.ppeum12.com/' },
+    cream: { key:'cream', name:'크림의원 안양범계역', short:'크림', region:'beomgye', regionLabel:'범계',
+      addr:'안양시 동안구 시민대로 161 안양무역센터 13층', access:'범계역 8번출구 약 70m',
+      rating:'4.9', reviews:'77', hours:'평일 10:30–20:30 / 토 10:30–16:30 / 일 휴진',
+      vat:'미확인', onnuri:'미확인', diag:'미확인', extra:'비급여 수가표 전체 공개(재료대·약제비 포함)',
+      url:'https://anyangcream.co.kr/nonSalary' },
+    muse: { key:'muse', name:'뮤즈의원 안양점', short:'뮤즈', region:'beomgye', regionLabel:'범계 인근',
+      addr:'범계역 인근 (정확한 주소 미확인)', access:'범계역 인근',
+      rating:'-', reviews:'', hours:'홈페이지에서 미확인',
+      vat:'별도', onnuri:'미확인', diag:'야누스 (첫방문 패키지 포함)', extra:'1회 단품 위주 · 입문용 IPL',
+      url:'' },
+    shine: { key:'shine', name:'샤인엘의원 안양범계', short:'샤인엘', region:'beomgye', regionLabel:'범계',
+      addr:'범계역 2번출구 인근 (주소 미확인)', access:'범계역 2번출구',
+      rating:'-', reviews:'', hours:'홈페이지에서 미확인',
+      vat:'별도', onnuri:'미확인', diag:'마크뷰 (5회 패키지 포함)', extra:'대표원장 직접 기미·주근깨 구분',
+      url:'' }
+  };
+
+  // c=clinic, n=시술명, p=가격(정렬용), t=가격표시(없으면 p 사용), o=정가, cond=조건, note=설명
+  var GROUPS = [
+    /* ================= 색소·잡티 ================= */
+    { cat:'pigment', title:'피코토닝 · 레이저토닝', note:'딱지 거의 없음 · 5~10회 누적 · 기미에 비교적 안전', items:[
+      {c:'evers', n:'레이저토닝 1회', p:4000, o:'7,800원', cond:['첫방문'], note:'첫방문 체험가 · 11월 이벤트는 35,000원'},
+      {c:'evers', n:'피코토닝 1회', p:9900, o:'19,400원', cond:['첫방문'], note:'11월 이벤트는 50,000원'},
+      {c:'ppeum', n:'레이저픽 1회 (피코토닝·V레이저·제네시스 택1)', p:9900, cond:['첫방문']},
+      {c:'vands', n:'피코토닝 + 크라이오 1회', p:19000, o:'37,000원', cond:['11월 이벤트'], note:'피코토닝 단독과 같은 가격 → 진정 관리 포함이 이득'},
+      {c:'vands', n:'피코토닝 1회', p:19000, o:'35,000원'},
+      {c:'day', n:'피코토닝 1회', p:19900, o:'39,000원', cond:['첫방문'], note:'11월 이벤트는 39,000원'},
+      {c:'uni', n:'레이저토닝 1회', p:19000, o:'35,000원', cond:['첫방문']},
+      {c:'uni', n:'피코토닝 1회', p:30000, o:'50,000원', cond:['첫방문']},
+      {c:'muse', n:'피코슈어pro 줌패스 1회 (명함 크기)', p:99000, note:'755nm 피코초 · 국소 집중 조사'},
+      {c:'ppeum', n:'피코토닝 1회', p:100000, note:'정가 게시'},
+      {c:'cream', n:'피코토닝 1회', p:200000, note:'비급여 고지가 (이벤트 아님)'},
+      {c:'tox', n:'피코토닝 5회', p:250000, t:'250,000원', note:'5회 세트 기준'}
+    ]},
+
+    { cat:'pigment', title:'IPL', note:'얇은 딱지 5~7일 · 2~3회에 걸쳐 옅어짐', items:[
+      {c:'muse', n:'IPL 1회', p:50000, note:'표피 주근깨·옅은 잡티 타깃 · 2~4일 뒤 얇은 딱지'}
+    ]},
+
+    { cat:'pigment', title:'루비 694nm', note:'진한 딱지 7~10일 · 1회 효과 강함 · 기미엔 위험', items:[
+      {c:'uni', n:'루비레이저 + 크라이오 1회', p:250000, note:'11월 이벤트 · 정가 40~45만 원'},
+      {c:'uni', n:'원데이색소 (루비 + 듀얼올포유 + 크라이오) 1회', p:450000}
+    ]},
+
+    { cat:'pigment', title:'잡티 · 흑자 국소 제거', note:'경계 뚜렷한 큰 잡티 한두 개에', items:[
+      {c:'evers', n:'잡티레이저 (클렌징 + 잡티레이저 + LED + 모델링)', p:10000, t:'10,000원', note:'개당 · 얼굴 전체 1회 129,000원 · 3회 319,000원'},
+      {c:'vands', n:'리팟레이저 (흑자 10mm 이내 1개)', p:290000, o:'550,000원', cond:['1회 체험가']}
+    ]},
+
+    { cat:'pigment', title:'진단 + 토닝 패키지', note:'기미·주근깨 감별부터 시작하는 코스', items:[
+      {c:'muse', n:'첫방문 토닝 1+1', p:99000, cond:['첫방문'], note:'야누스 피부진단 + 피코슈어pro/레블라이트 + 크라이오 + 모델링'},
+      {c:'shine', n:'복합 색소 솔루션 5회', p:1000000, t:'1,000,000원', note:'마크뷰 진단 포함 · 회당 20만 원 · 대표원장 직접 구분'}
+    ]},
+
+    { cat:'pigment', title:'기미 · 미백 관리', note:'강한 레이저 대신 약하게 여러 번', items:[
+      {c:'vands', n:'비타민관리 + 이온자임 1회', p:19000, o:'37,000원', note:'레이저 병행 미백·진정 관리'},
+      {c:'vands', n:'기미주사 1부위', p:29000, o:'50,000원'},
+      {c:'evers', n:'피코슈어토닝 755nm 1회', p:35000, t:'35,000~39,000원', o:'69,000원', cond:['첫방문','11월'], note:'기미 주변 혈관·탄력까지 함께 진정'},
+      {c:'vands', n:'피코토닝 + 피코지우개', p:99000, t:'99,000원', note:'구성 상세는 상담 확인'}
+    ]},
+
+    /* ================= 보톡스·윤곽 ================= */
+    { cat:'botox', title:'주름 보톡스 1부위 (국산)', note:'첫방문 특가가 많아요 · 재방문은 정가/월 이벤트가', items:[
+      {c:'vands', n:'주름보톡스 1부위', p:1000, o:'1,900원', cond:['1회 체험가']},
+      {c:'day', n:'주름보톡스 1부위', p:2000, o:'3,900원', cond:['첫방문'], note:'11월 이벤트는 9,900원'},
+      {c:'uni', n:'주름보톡스 1부위', p:3900, o:'5,800원', cond:['첫방문']},
+      {c:'evers', n:'주름보톡스 1부위', p:5000, o:'9,800원', cond:['첫방문'], note:'11월 이벤트는 9,900원'},
+      {c:'tox', n:'주름보톡스 1부위', p:11000, o:'21,900원', cond:['이벤트'], note:'이마 제외'},
+      {c:'ppeum', n:'주름보톡스 1부위', p:30000, note:'티엠버스 이벤트 40,000원 · 이마 제외'},
+      {c:'cream', n:'주름보톡스 (부위별)', p:42000, t:'42,000~95,000원', note:'비급여 고지가'}
+    ]},
+
+    { cat:'botox', title:'주름 보톡스 — 수입(독일)', items:[
+      {c:'vands', n:'수입 보톡스 1부위 (독일)', p:19000, o:'37,000원'},
+      {c:'evers', n:'수입 보톡스 1부위 (독일)', p:35000},
+      {c:'day', n:'수입 보톡스 1부위 (독일)', p:39000},
+      {c:'ppeum', n:'수입 보톡스 1부위 (독일)', p:70000}
+    ]},
+
+    { cat:'botox', title:'주름 보톡스 — 수입(미국)', items:[
+      {c:'vands', n:'수입 보톡스 1부위 (미국)', p:39000, o:'75,000원'},
+      {c:'evers', n:'수입 보톡스 1부위 (미국)', p:58000},
+      {c:'day', n:'수입 보톡스 1부위 (미국)', p:59000},
+      {c:'uni', n:'수입 보톡스 1부위 (미국)', p:75000, note:'1부위 기준'}
+    ]},
+
+    { cat:'botox', title:'사각턱 보톡스 50유닛 (국산)', items:[
+      {c:'vands', n:'사각턱 50유닛', p:4900, o:'9,000원', cond:['1회 체험가'], note:'정가 19,000원'},
+      {c:'day', n:'사각턱 50유닛', p:4900, o:'9,700원', cond:['첫방문'], note:'11월 이벤트는 14,900원'},
+      {c:'uni', n:'사각턱 50유닛', p:9900, o:'17,000원', cond:['첫방문']},
+      {c:'evers', n:'사각턱 50유닛', p:15000, o:'17,600원'},
+      {c:'tox', n:'사각턱 50유닛', p:15000, cond:['수능 이벤트']},
+      {c:'ppeum', n:'사각턱 50유닛', p:35000, note:'티엠버스 50u 이벤트 60,000원'},
+      {c:'cream', n:'사각턱 (부위별)', p:55000, t:'55,000~150,000원', note:'비급여 고지가'}
+    ]},
+
+    { cat:'botox', title:'사각턱 — 제오민/독일', items:[
+      {c:'evers', n:'사각턱 (독일)', p:75000},
+      {c:'day', n:'사각턱 (독일)', p:79000},
+      {c:'vands', n:'사각턱 (독일)', p:99000, o:'180,000원'},
+      {c:'ppeum', n:'사각턱 (독일)', p:120000}
+    ]},
+
+    { cat:'botox', title:'스킨보톡스 · 모공톡신 (얼굴 전체)', items:[
+      {c:'vands', n:'모공톡신 3cc', p:69000},
+      {c:'day', n:'스킨보톡스 3cc', p:89000, cond:['11월']},
+      {c:'evers', n:'스킨보톡스 3cc', p:89000},
+      {c:'ppeum', n:'스킨보톡스 3cc', p:150000, o:'295,000원'},
+      {c:'cream', n:'스킨보톡스 3cc', p:219000, t:'219,000~358,000원', note:'비급여 고지가'}
+    ]},
+
+    { cat:'botox', title:'윤곽주사', items:[
+      {c:'ppeum', n:'VPL 윤곽주사 15cc', p:9900, cond:['첫방문']}
+    ]},
+
+    /* ================= 리프팅 ================= */
+    { cat:'lifting', title:'인모드 FX 1부위', note:'고주파 · 다운타임 거의 없음', items:[
+      {c:'vands', n:'인모드 FX 1부위', p:5900, o:'10,500원', cond:['1회 체험가'], note:'얼굴 전체는 69,000원'},
+      {c:'evers', n:'인모드 FX 1부위', p:9900, o:'19,400원', cond:['첫방문']},
+      {c:'day', n:'인모드 FX 1부위', p:19000, cond:['첫방문'], note:'11월 이벤트는 39,000원'},
+      {c:'tox', n:'인모드 FX 1부위', p:59000, note:'3회 149,000원'},
+      {c:'cream', n:'인모드 (부위당)', p:250000, t:'250,000~490,000원', note:'비급여 고지가'}
+    ]},
+
+    { cat:'lifting', title:'인모드 얼굴 전체 (FX + Forma)', items:[
+      {c:'uni', n:'인모드 얼굴 전체', p:69000, o:'130,000원', cond:['첫방문']},
+      {c:'tox', n:'인모드 FX + FM 얼굴 전체', p:119000},
+      {c:'vands', n:'인모드 FX + Forma 얼굴 전체', p:179000, o:'280,000원'},
+      {c:'ppeum', n:'인모드 FORMA + FX 얼굴', p:380000, o:'750,000원'}
+    ]},
+
+    { cat:'lifting', title:'슈링크 유니버스 100샷', items:[
+      {c:'evers', n:'슈링크 유니버스 100샷', p:14900, o:'29,200원', cond:['첫방문']},
+      {c:'uni', n:'슈링크 유니버스 100샷', p:19000, o:'37,000원', cond:['첫방문']},
+      {c:'vands', n:'슈링크 유니버스 100샷', p:29000, o:'50,000원'},
+      {c:'cream', n:'슈링크 (100샷)', p:100000, note:'비급여 고지가'}
+    ]},
+
+    { cat:'lifting', title:'슈링크 유니버스 300샷', items:[
+      {c:'day', n:'슈링크 유니버스 300샷', p:59000, cond:['첫방문'], note:'11월 이벤트는 89,000원'},
+      {c:'vands', n:'슈링크 유니버스 300샷', p:99000, o:'180,000원'},
+      {c:'tox', n:'슈링크 유니버스 300샷', p:119000, o:'237,000원'},
+      {c:'uni', n:'슈링크 300샷 + 턱보톡스 세트', p:140000},
+      {c:'ppeum', n:'슈링크 울트라F 300샷', p:255000, o:'450,000원'}
+    ]},
+
+    { cat:'lifting', title:'울쎄라 (고출력)', items:[
+      {c:'vands', n:'울쎄라 100샷', p:249000, o:'490,000원'},
+      {c:'tox', n:'울쎄라 100샷', p:299000, o:'450,000원'},
+      {c:'cream', n:'울쎄라 100샷', p:560000, note:'비급여 고지가'},
+      {c:'ppeum', n:'울쎄라피 프라임 100샷', p:600000},
+      {c:'uni', n:'울쎄라피 300샷 (화·수·목)', p:990000}
+    ]},
+
+    { cat:'lifting', title:'써마지 FLX', items:[
+      {c:'vands', n:'써마지 FLX 300샷', p:990000, o:'1,900,000원'},
+      {c:'uni', n:'써마지 FLX 600샷 (화·수·목)', p:1990000}
+    ]},
+
+    { cat:'lifting', title:'올리지오', items:[
+      {c:'evers', n:'올리지오 100샷', p:74900, cond:['첫방문']},
+      {c:'vands', n:'올리지오 300샷', p:299000},
+      {c:'uni', n:'올리지오 600샷', p:890000},
+      {c:'ppeum', n:'올리지오 600샷', p:990000, t:'990,000원', o:'1,950,000원', note:'이벤트가'}
+    ]},
+
+    { cat:'lifting', title:'온다 리프팅', note:'줄 수·KJ 단위가 달라 같은 기준끼리 비교가 어려워요', items:[
+      {c:'vands', n:'온다 10KJ', p:59000},
+      {c:'cream', n:'온다 10KJ', p:59000, t:'59,000~158,400원', note:'비급여 고지가'},
+      {c:'evers', n:'온다 5만 줄', p:250000},
+      {c:'tox', n:'온다 3만 줄 + 슈링크 300샷', p:259000},
+      {c:'vands', n:'온다 60KJ', p:390000},
+      {c:'day', n:'온다 100KJ', p:659000, cond:['첫방문']}
+    ]},
+
+    /* ================= 스킨부스터·관리 ================= */
+    { cat:'booster', title:'리쥬란힐러 2cc', note:'연어 DNA 재생 · 3곳이 149,000원으로 수렴', items:[
+      {c:'vands', n:'리쥬란힐러 2cc', p:149000, o:'250,000원'},
+      {c:'day', n:'리쥬란힐러 2cc', p:149000, cond:['첫방문'], note:'11월 이벤트는 159,000원'},
+      {c:'uni', n:'리쥬란힐러 2cc', p:149000, o:'280,000원', cond:['첫방문']},
+      {c:'tox', n:'리쥬란힐러 2cc', p:199000, o:'397,000원'},
+      {c:'ppeum', n:'리쥬란힐러 2cc', p:400000, note:'정가 · 단독 기준'},
+      {c:'cream', n:'리쥬란힐러 2cc', p:490000, note:'비급여 고지가'}
+    ]},
+
+    { cat:'booster', title:'리쥬란 프리미엄 · HB', items:[
+      {c:'vands', n:'리쥬란 프리미엄 3cc', p:159000},
+      {c:'day', n:'리쥬란 HB 1cc', p:159000},
+      {c:'ppeum', n:'리쥬란 HB 1cc (입술)', p:220000},
+      {c:'tox', n:'리쥬란 HB+ 1cc', p:250000},
+      {c:'cream', n:'리쥬란 HB', p:520000, note:'비급여 고지가'},
+      {c:'uni', n:'리쥬란 HB+ 4cc', p:630000}
+    ]},
+
+    { cat:'booster', title:'쥬베룩 스킨 (모공·톤)', items:[
+      {c:'vands', n:'쥬베룩 스킨 1cc', p:49000, o:'80,000원', note:'MTS 병행 69,000원'},
+      {c:'day', n:'쥬베룩 모공 스킨부스터 2cc', p:139000, cond:['11월']},
+      {c:'tox', n:'쥬베룩 4cc 세트', p:390000},
+      {c:'cream', n:'쥬베룩 1회', p:400000, note:'비급여 고지가'}
+    ]},
+
+    { cat:'booster', title:'쥬베룩 볼륨', note:'1cc 단가 · 대부분 3cc 이상 조건', items:[
+      {c:'uni', n:'쥬베룩 볼륨 1cc (3cc 이상)', p:55000, cond:['첫방문']},
+      {c:'vands', n:'쥬베룩 볼륨 1cc (3cc 이상)', p:83000, note:'1vial은 629,000원'},
+      {c:'day', n:'쥬베룩 볼륨 1+1cc', p:139000},
+      {c:'evers', n:'쥬베룩 볼륨 1병', p:400000},
+      {c:'cream', n:'쥬베룩 볼륨 1바이알', p:1000000, note:'비급여 고지가'}
+    ]},
+
+    { cat:'booster', title:'물광주사', items:[
+      {c:'evers', n:'물광주사 2.5cc', p:39000, cond:['첫방문']},
+      {c:'day', n:'물광주사 2cc', p:49000, cond:['첫방문']},
+      {c:'vands', n:'물광주사 1cc', p:49000, note:'2cc는 89,000원'},
+      {c:'ppeum', n:'물광주사 2.5cc', p:100000},
+      {c:'tox', n:'물광주사 4cc + 관리', p:130000},
+      {c:'cream', n:'물광주사 2cc', p:200000, note:'비급여 고지가'}
+    ]},
+
+    { cat:'booster', title:'아쿠아필 · 진정 관리', items:[
+      {c:'vands', n:'아쿠아필 1회', p:3900, o:'7,500원', cond:['체험가']},
+      {c:'day', n:'아쿠아필 1회', p:5000, o:'9,800원', cond:['첫방문']},
+      {c:'evers', n:'아쿠아필 1회', p:7900, o:'15,400원', cond:['첫방문']},
+      {c:'tox', n:'아쿠아필 1회 (수분/비타민 택1)', p:11000},
+      {c:'uni', n:'아쿠아필 1회', p:12000, o:'17,000원', cond:['첫방문']},
+      {c:'ppeum', n:'아쿠아필 1·2·3제', p:59000},
+      {c:'cream', n:'아쿠아필', p:115000, t:'115,000~143,000원', note:'비급여 고지가'}
+    ]},
+
+    { cat:'booster', title:'점제거 (개당)', items:[
+      {c:'evers', n:'점제거 2mm 이하 (5개까지)', p:500, t:'500원', cond:['첫방문'], note:'개당 500원'},
+      {c:'day', n:'점제거 (5개까지)', p:1000, o:'1,900원', cond:['첫방문']},
+      {c:'vands', n:'점제거 2mm 이하', p:10000, t:'10,000원', note:'개당'},
+      {c:'cream', n:'점제거 1mm', p:15000, t:'15,000원', note:'비급여 고지가'}
+    ]},
+
+    { cat:'booster', title:'제모 (1회)', items:[
+      {c:'day', n:'여성 겨드랑이·인중 제모 1회', p:1000, o:'1,900원', cond:['첫방문']},
+      {c:'uni', n:'여성 겨드랑이·인중 제모 1회', p:2000, o:'3,900원', cond:['첫방문']},
+      {c:'vands', n:'여성 겨드랑이·인중 제모 1회', p:9900, o:'18,000원'},
+      {c:'tox', n:'제모 1회', p:11000},
+      {c:'cream', n:'제모 (부위별)', p:49000, t:'49,000~530,000원', note:'비급여 고지가'}
+    ]}
+  ];
+
+  var CAT_META = {
+    pigment: { title:'색소·잡티 가격 비교', guide:true },
+    botox:   { title:'보톡스·윤곽 가격 비교', guide:false },
+    lifting: { title:'리프팅·탄력 가격 비교', guide:false },
+    booster: { title:'스킨부스터·관리 가격 비교', guide:false }
+  };
+
+  var state = { region:'all', cat:'pigment', vat:false };
+
+  var $ = function(id){ return document.getElementById(id); };
+  var won = function(v){ return (Math.round(v)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); };
+
+  function clinicVat(c){
+    var cl = CLINICS[c];
+    if (!cl) return null;
+    if (cl.vat === '별도') return true;
+    if (cl.vat === '포함') return false;
+    return null;
+  }
+
+  function firstNum(s){
+    if (!s) return null;
+    var m = String(s).match(/([\d,]+)/);
+    if (!m) return null;
+    var v = parseInt(m[1].replace(/,/g, ''), 10);
+    return isNaN(v) ? null : v;
+  }
+
+  function priceHtml(it){
+    var vat = clinicVat(it.c);
+    var vatOn = state.vat && vat === true;
+    var txt;
+    var flag = vatOn ? '<span class="vatflag">VAT포함</span>' : '';
+
+    if (vatOn){
+      if (it.t){
+        var low = firstNum(it.t);
+        txt = (low === null) ? it.t : won(Math.round(low * 1.1)) + (it.t.indexOf('~') > -1 ? '원~' : '원');
+      } else {
+        txt = won(Math.round(it.p * 1.1)) + '원';
+      }
+    } else {
+      txt = it.t ? it.t : won(it.p) + '원';
+      if (state.vat && vat === null) flag = '<span class="vatflag">VAT?</span>';
+    }
+
+    var out = '<span class="won">' + txt + flag + '</span>';
+    if (it.o){
+      var ol = firstNum(it.o);
+      out += '<span class="orig">' + ((vatOn && ol !== null) ? won(Math.round(ol * 1.1)) + '원' : it.o) + '</span>';
+    }
+    return out;
+  }
+
+  function regionTag(c){
+    var cl = CLINICS[c];
+    var cls = cl.region === 'pangyo' ? 'pangyo' : 'beomgye';
+    var label = cl.region === 'pangyo' ? '판교' : '범계';
+    return '<span class="tag ' + cls + '">' + label + '</span>';
+  }
+
+  function render(){
+    var cat = state.cat;
+    var host = $('groupList');
+    var html = '';
+    var total = 0;
+    var groupsOut = 0;
+
+    for (var i = 0; i < GROUPS.length; i++){
+      var g = GROUPS[i];
+      if (g.cat !== cat) continue;
+      var items = g.items.filter(function(it){
+        return state.region === 'all' || CLINICS[it.c].region === state.region;
+      });
+      if (!items.length) continue;
+      items = items.slice().sort(function(a,b){ return a.p - b.p; });
+      groupsOut++;
+      total += items.length;
+
+      var bestP = items.length > 1 ? items[0].p : -1;
+      var rows = '';
+      for (var j = 0; j < items.length; j++){
+        var it = items[j];
+        var cl = CLINICS[it.c];
+        var conds = (it.cond || []).map(function(cd){ return '<span class="cond">· ' + cd + '</span>'; }).join(' ');
+        var best = (it.p === bestP && j === 0) ? '<span class="tag best">최저</span>' : '';
+        rows += '<div class="row">' +
+          '<div class="rmain">' +
+            '<div class="rtitle"><span class="cname">' + cl.name + '</span>' + regionTag(it.c) + best + '</div>' +
+            '<div class="rsub">' + it.n + ' ' + conds + '</div>' +
+            (it.note ? '<div class="rnote">' + it.note + '</div>' : '') +
+          '</div>' +
+          '<div class="rprice">' + priceHtml(it) + '</div>' +
+        '</div>';
+      }
+      html += '<div class="grp">' +
+        '<div class="grphead"><span class="bar"></span><h3>' + g.title + '</h3><span class="cnt">' + items.length + '</span></div>' +
+        (g.note ? '<div class="grpnote">' + g.note + '</div>' : '') +
+        '<div class="rows">' + rows + '</div>' +
+      '</div>';
+    }
+
+    host.innerHTML = html || '<div class="empty">이 조건에 해당하는 가격이 없어요.<br>지역 필터를 바꿔 보세요.</div>';
+    $('listTitle').textContent = CAT_META[cat].title;
+    $('listCount').textContent = groupsOut + '개 항목 · ' + total + '개 가격';
+    $('metaCount').textContent = String(GROUPS.reduce(function(a,g){ return a + g.items.length; }, 0));
+
+    // 색소 가이드: 색소 탭에서만
+    $('guideSec').style.display = (cat === 'pigment') ? '' : 'none';
+
+    // 병원 카드 지역 필터
+    var cards = document.querySelectorAll('.clinic');
+    for (var k = 0; k < cards.length; k++){
+      var r = cards[k].getAttribute('data-region');
+      cards[k].classList.toggle('hide', !(state.region === 'all' || r === state.region));
+    }
+  }
+
+  function renderClinics(){
+    var order = ['vands','uni','evers','tox','day','ppeum','cream','muse','shine'];
+    var html = '';
+    for (var i = 0; i < order.length; i++){
+      var cl = CLINICS[order[i]];
+      var vatTxt = cl.vat === '별도' ? 'VAT 10% 별도' : (cl.vat === '미확인' ? 'VAT 미확인' : 'VAT 포함');
+      var vatCls = cl.vat === '별도' ? '' : (cl.vat === '미확인' ? 'warn' : 'ok');
+      var onTxt = cl.onnuri;
+      var onCls = cl.onnuri.indexOf('O') > -1 ? 'ok' : '';
+      var rate = cl.rating === '-' ? '<span class="crate"><span>평점 미확인</span></span>' :
+        '<span class="crate">★ <b>' + cl.rating + '</b> <span>(' + cl.reviews + ')</span></span>';
+      html += '<div class="clinic" data-region="' + cl.region + '">' +
+        '<div class="ctop">' + regionTag(cl.key) + '<span class="cname2">' + cl.name + '</span>' + rate + '</div>' +
+        '<div class="caddr">' + cl.addr + '<br>' + cl.access + '</div>' +
+        '<div class="crows">' +
+          '<div class="crow"><span class="k">영업</span><span class="v">' + cl.hours + '</span></div>' +
+          '<div class="crow"><span class="k">부가세</span><span class="v ' + vatCls + '">' + vatTxt + '</span></div>' +
+          '<div class="crow"><span class="k">온누리</span><span class="v ' + onCls + '">' + onTxt + '</span></div>' +
+          '<div class="crow"><span class="k">진단기</span><span class="v">' + cl.diag + '</span></div>' +
+          '<div class="crow"><span class="k">참고</span><span class="v">' + cl.extra + '</span></div>' +
+        '</div>' +
+        (cl.url ? '<a class="clink" href="' + cl.url + '" target="_blank" rel="noopener">공식 홈페이지</a>' : '') +
+      '</div>';
+    }
+    $('clinicList').innerHTML = html;
+  }
+
+  // 지역 카운트
+  function counts(){
+    var all = 0, p = 0, b = 0;
+    for (var k in CLINICS){
+      if (!Object.prototype.hasOwnProperty.call(CLINICS, k)) continue;
+      all++;
+      if (CLINICS[k].region === 'pangyo') p++; else b++;
+    }
+    $('cntAll').textContent = all;
+    $('cntPangyo').textContent = p;
+    $('cntBeomgye').textContent = b;
+  }
+
+  // 이벤트
+  var chips = document.querySelectorAll('#regionChips .chip');
+  for (var i = 0; i < chips.length; i++){
+    (function(btn){
+      btn.addEventListener('click', function(){
+        state.region = btn.getAttribute('data-region');
+        for (var t = 0; t < chips.length; t++){
+          chips[t].setAttribute('aria-pressed', chips[t] === btn ? 'true' : 'false');
+        }
+        render();
+      });
+    })(chips[i]);
+  }
+
+  var tabs = document.querySelectorAll('#tabs .tab');
+  for (var t2 = 0; t2 < tabs.length; t2++){
+    (function(btn){
+      btn.addEventListener('click', function(){
+        state.cat = btn.getAttribute('data-cat');
+        for (var u = 0; u < tabs.length; u++){
+          tabs[u].setAttribute('aria-selected', tabs[u] === btn ? 'true' : 'false');
+        }
+        render();
+      });
+    })(tabs[t2]);
+  }
+
+  var sw = $('vatSwitch');
+  sw.addEventListener('click', function(){
+    state.vat = !state.vat;
+    sw.setAttribute('aria-pressed', state.vat ? 'true' : 'false');
+    render();
+  });
+
+  $('topBtn').addEventListener('click', function(){
+    window.scrollTo({ top:0, behavior:'smooth' });
+  });
+
+  renderClinics();
+  counts();
+  render();
+
+  document.documentElement.setAttribute('data-ready', '1');
+  document.documentElement.setAttribute('data-js-errors', String(window.__errs.length));
+})();
+</script>
+</body>
+</html>
