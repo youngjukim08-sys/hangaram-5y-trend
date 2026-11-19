@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light" />
+<title>한가람한양 5년 시세 추이 | 2021–2026</title>
+<style>
+  :root{
+    --bg:#F2F4F6; --card:#FFFFFF; --text:#191F28; --sub:#6B7684; --tert:#8B95A1; --hint:#B0B8C1;
+    --line:#F0F2F5; --blue:#3182F6; --green:#00B26B; --purple:#7A5AF8; --up:#F04452;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic","Noto Sans KR",sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.45;
+    font-variant-numeric:tabular-nums;
+  }
+  .page{max-width:860px;margin:0 auto;padding:16px 14px 56px}
+  @media (min-width:768px){ .page{padding:32px 24px 72px} }
+
+  /* ---------- hero ---------- */
+  .hero{background:var(--card);border-radius:24px;padding:22px 20px 20px;margin-bottom:10px}
+  @media (min-width:768px){ .hero{padding:30px 28px 28px} }
+  .eyebrow{font-size:11.5px;font-weight:700;color:var(--blue);letter-spacing:0.02em}
+  .hero h1{font-size:27px;line-height:1.25;margin:8px 0 4px;font-weight:800;letter-spacing:-0.035em}
+  @media (min-width:768px){ .hero h1{font-size:33px} }
+  .addr{font-size:13px;color:var(--sub);margin:0 0 2px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+  .chip{background:#F7F8FA;border-radius:999px;padding:6px 11px;font-size:11.5px;font-weight:600;color:#4E5968;white-space:nowrap}
+  .herostat{
+    margin-top:18px;background:#F5F9FF;border-radius:16px;padding:15px 16px;
+    display:flex;align-items:flex-end;justify-content:space-between;gap:12px;
+  }
+  .herostat .k{font-size:11.5px;font-weight:600;color:#4E5968;margin:0}
+  .herostat .v{font-size:30px;font-weight:800;letter-spacing:-0.04em;color:var(--up);margin:3px 0 0;line-height:1.1}
+  .herostat .side{text-align:right}
+  .herostat .side .v2{font-size:17px;font-weight:800;color:#4E5968;margin:3px 0 0;letter-spacing:-0.02em}
+  @media (max-width:359px){
+    .herostat{flex-direction:column;align-items:flex-start;gap:12px}
+    .herostat .side{text-align:left}
+    .herostat .v{font-size:26px}
+    .hero h1{font-size:24px}
+  }
+
+  /* ---------- generic card & headings ---------- */
+  .card{background:var(--card);border-radius:22px;padding:18px 16px;margin-bottom:10px}
+  @media (min-width:768px){ .card{padding:22px 24px} }
+  .sec{font-size:16px;font-weight:800;letter-spacing:-0.02em;margin:26px 4px 10px}
+  .sec span{font-weight:600;color:var(--tert);font-size:12px;margin-left:6px;letter-spacing:0}
+  .sec-sub{font-size:12px;color:var(--tert);margin:0 4px 10px;line-height:1.5}
+
+  /* ---------- segmented filter ---------- */
+  .seg{display:flex;gap:4px;background:var(--bg);border-radius:15px;padding:4px;margin-bottom:16px}
+  .seg button{
+    flex:1;min-width:0;border:0;background:transparent;font-family:inherit;cursor:pointer;
+    padding:8px 2px;border-radius:12px;color:var(--sub);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+    transition:background .18s ease,color .18s ease,box-shadow .18s ease;
+  }
+  .seg button .t{font-size:13px;font-weight:700;letter-spacing:-0.02em;white-space:nowrap}
+  .seg button .p{font-size:10px;font-weight:600;color:var(--hint);letter-spacing:0}
+  .seg button.on{background:#fff;color:var(--text);box-shadow:0 2px 7px rgba(23,31,40,.08),0 0 0 .5px rgba(23,31,40,.03)}
+  .seg button.on .p{color:var(--blue)}
+  @media (min-width:768px){ .seg button .t{font-size:14px} .seg button .p{font-size:11px} }
+
+  /* ---------- chart ---------- */
+  .chart-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:6px}
+  .chart-head h2{font-size:14.5px;font-weight:700;margin:0;letter-spacing:-0.02em}
+  .chart-head p{font-size:11px;color:var(--tert);margin:3px 0 0}
+  .chart-wrap{position:relative;width:100%;margin-top:6px}
+  #chart{display:block;width:100%;overflow:visible;touch-action:pan-y}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;padding-left:2px}
+  .legend button{display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:2px 0;font-family:inherit;font-size:11.5px;font-weight:600;color:var(--sub);cursor:pointer}
+  .legend i{width:8px;height:8px;border-radius:50%;display:inline-block}
+  .legend button.on{color:var(--text)}
+  .legend .hidden{display:none}
+
+  .tip{
+    position:absolute;z-index:5;pointer-events:none;
+    background:rgba(25,31,40,.94);color:#fff;border-radius:12px;padding:9px 11px;
+    opacity:0;transform:translateY(2px);transition:opacity .12s ease,transform .12s ease;
+    box-shadow:0 6px 18px rgba(23,31,40,.18);min-width:96px;
+  }
+  .tip.on{opacity:1;transform:translateY(0)}
+  .tip-h{font-size:10.5px;font-weight:600;color:#9AA4B1;margin-bottom:5px}
+  .tip-big{font-size:16px;font-weight:800;letter-spacing:-0.02em;line-height:1.2}
+  .tip-note{font-size:10.5px;color:#C3CBD4;margin-top:3px;max-width:170px;line-height:1.4}
+  .tip-row{display:flex;align-items:center;gap:6px;font-size:11.5px;margin-top:4px;white-space:nowrap}
+  .tip-row i{width:6px;height:6px;border-radius:50%;flex:0 0 auto}
+  .tip-row span{color:#C3CBD4}
+  .tip-row b{margin-left:auto;padding-left:8px;font-weight:700}
+
+  /* ---------- stats ---------- */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+  @media (min-width:600px){ .stats{grid-template-columns:repeat(3,1fr)} }
+  .stat{background:#fff;border-radius:16px;padding:15px 14px 14px}
+  .stat .k{font-size:11px;font-weight:600;color:var(--tert);margin:0}
+  .stat .v{font-size:19px;font-weight:800;letter-spacing:-0.03em;margin:5px 0 0;line-height:1.25}
+  @media (min-width:600px){ .stat .v{font-size:21px} }
+  .stat .s{font-size:10.5px;color:var(--hint);margin:4px 0 0;line-height:1.4}
+  .up{color:var(--up)}
+
+  .typerows{background:#fff;border-radius:18px;overflow:hidden}
+  .typerow{display:flex;align-items:center;gap:10px;padding:15px 16px;border-top:1px solid var(--line);cursor:pointer}
+  .typerow:first-child{border-top:0}
+  .typerow:active{background:#F7F8FA}
+  .tr-name{display:flex;align-items:center;gap:6px;min-width:88px}
+  .tr-name i{width:8px;height:8px;border-radius:50%;display:inline-block}
+  .tr-name b{font-size:13.5px;font-weight:700}
+  .tr-name span{font-size:11px;color:var(--tert);font-weight:600}
+  .tr-mid,.tr-right{margin-left:auto;text-align:right}
+  .tr-right{min-width:74px}
+  .tr-mid b,.tr-right b{font-size:14.5px;font-weight:800;letter-spacing:-0.02em;display:block}
+  .tr-mid span,.tr-right span{font-size:10px;color:var(--hint);font-weight:600}
+
+  /* ---------- transactions ---------- */
+  .tx-block + .tx-block{margin-top:6px;padding-top:12px;border-top:1px solid var(--line)}
+  .tx-group{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:800;color:#333D4B;padding:6px 0 4px}
+  .tx-group i{width:7px;height:7px;border-radius:50%;display:inline-block}
+  .tx-group span{font-weight:600;color:var(--tert);font-size:11px}
+  .tx{display:flex;align-items:center;gap:8px;padding:10px 0;border-top:1px solid var(--line)}
+  .tx-block .tx:first-of-type{border-top:0}
+  .tx-d{font-size:12px;color:var(--tert);font-weight:600;min-width:84px}
+  .tx-f{font-size:12px;color:var(--tert)}
+  .tx-p{margin-left:auto;font-size:14.5px;font-weight:800;letter-spacing:-0.02em}
+  .badge{font-size:10px;font-weight:700;color:#fff;background:var(--up);border-radius:6px;padding:3px 6px;letter-spacing:-0.01em}
+  .badge.gray{background:#B0B8C1}
+
+  /* ---------- insight ---------- */
+  .insights{display:grid;gap:8px}
+  .insight{background:#fff;border-radius:16px;padding:17px 16px;display:flex;gap:12px}
+  .insight .num{
+    flex:0 0 auto;width:24px;height:24px;border-radius:8px;background:#E8F1FE;color:var(--blue);
+    font-size:11.5px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;
+  }
+  .insight h3{font-size:14px;font-weight:700;margin:0 0 6px;letter-spacing:-0.02em;line-height:1.4}
+  .insight p{font-size:12.5px;color:var(--sub);margin:0;line-height:1.65}
+
+  /* ---------- comparison ---------- */
+  .cmp{background:#fff;border-radius:20px;padding:18px 16px 8px}
+  .cmp-row{padding:9px 0}
+  .cmp-top{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:6px}
+  .cmp-name{font-size:12.5px;font-weight:600;color:#333D4B}
+  .cmp-name span{font-weight:500;color:var(--hint);font-size:11px;margin-left:3px}
+  .cmp-val{font-size:12.5px;font-weight:800;color:#4E5968}
+  .cmp-bar{position:relative;height:9px;background:#F2F4F6;border-radius:99px}
+  .cmp-fill{height:100%;border-radius:99px;background:#CBD5E0}
+  .cmp-ref{position:absolute;top:-3px;bottom:-3px;left:32.5%;width:0;border-left:1px dashed #9AA4B1;opacity:.7}
+  .cmp-row.me .cmp-name{color:var(--blue);font-weight:800}
+  .cmp-row.me .cmp-val{color:var(--blue)}
+  .cmp-row.me .cmp-fill{background:var(--blue)}
+  .cmp-note{font-size:10.5px;color:var(--hint);padding:12px 2px 10px;line-height:1.55;border-top:1px solid var(--line);margin-top:6px}
+
+  /* ---------- footer ---------- */
+  .foot{margin-top:22px;padding:0 6px;font-size:11px;color:var(--hint);line-height:1.75}
+  .foot b{color:var(--tert);font-weight:700}
+</style>
+</head>
+<body>
+<main class="page">
+
+  <section class="hero">
+    <p class="eyebrow">국토교통부 실거래가 · 2021–2026</p>
+    <h1>한가람한양<br>5년 시세 추이</h1>
+    <p class="addr">경기 안양시 동안구 관양동 · 학의로 120</p>
+    <div class="chips">
+      <span class="chip">952세대</span>
+      <span class="chip">1995.05 준공 · 32년차</span>
+      <span class="chip">용적률 208%</span>
+      <span class="chip">건폐율 16%</span>
+    </div>
+    <div class="herostat">
+      <div>
+        <p class="k">34평 · 5년 전 대비 (분기 중앙값)</p>
+        <p class="v">+32.9%</p>
+      </div>
+      <div class="side">
+        <p class="k">동급 7개 단지 중앙값</p>
+        <p class="v2">+13%</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="seg" id="seg">
+      <button data-id="all" class="on"><span class="t">전체</span><span class="p">3개 평형</span></button>
+      <button data-id="s55"><span class="t">55㎡</span><span class="p">17평</span></button>
+      <button data-id="s79"><span class="t">79㎡</span><span class="p">24평</span></button>
+      <button data-id="s104"><span class="t">104㎡</span><span class="p">34평</span></button>
+    </div>
+    <div class="chart-head">
+      <div>
+        <h2 id="chartTitle">평형별 연도별 평균 매매가</h2>
+        <p id="chartSub">단위: 억 원 · 2026년은 1~10월 거래 평균</p>
+      </div>
+    </div>
+    <div class="chart-wrap" id="chartWrap">
+      <svg id="chart" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="연도별 평균 매매가 추이 그래프"></svg>
+      <div class="tip" id="tip"></div>
+    </div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <h2 class="sec">핵심 지표<span id="statHint">평형을 누르면 자세히</span></h2>
+  <div id="stats"></div>
+
+  <h2 class="sec">2026년 주요 실거래</h2>
+  <p class="sec-sub">국토교통부 실거래가 신고 기준 · 최근 순</p>
+  <section class="card" style="padding-top:8px;padding-bottom:12px">
+    <div id="txlist"></div>
+  </section>
+
+  <h2 class="sec">5년 흐름 한눈에</h2>
+  <div class="insights">
+    <div class="insight">
+      <div class="num">1</div>
+      <div>
+        <h3>2021년 고점 → 2023~24년 조정 → 2025~26년 전고점 돌파</h3>
+        <p>세 평형 모두 바닥을 다진 뒤 올해 역대 신고가를 새로 썼습니다. 34평은 2021년 고점(8.40억)보다 약 30% 높은 10.90억, 24평은 8.00억, 17평은 5.70억에서 6.30억까지 거래됐어요.</p>
+      </div>
+    </div>
+    <div class="insight">
+      <div class="num">2</div>
+      <div>
+        <h3>월판선 역세권 + 32년차 통합재건축 기대감</h3>
+        <p>월곶–판교선 수혜가 기대되는 입지에 준공 32년차 단지라 통합재건축 추진 기대가 겹쳤습니다. 같은 기간 동급 7개 단지 중앙값이 +13% 오를 때 34평은 +32.9%로 상승 폭이 두 배 이상 컸어요.</p>
+      </div>
+    </div>
+    <div class="insight">
+      <div class="num">3</div>
+      <div>
+        <h3>호가는 실거래 위, 17평은 숨고르기</h3>
+        <p>매도 호가가 실거래가보다 높게 형성돼 있습니다(24평 10.0~10.15억, 34평 10.5~12.8억). 주력인 17평은 9월 6.3억 신고가 이후 10월 5.50~5.675억으로 소폭 숨고르기 중이에요.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="sec">동급 단지 5년 상승률<span>34평 기준</span></h2>
+  <section class="cmp" id="cmp">
+    <div class="cmp-row me">
+      <div class="cmp-top"><span class="cmp-name">한가람한양 <span>34평</span></span><span class="cmp-val">+32.9%</span></div>
+      <div class="cmp-bar"><div class="cmp-fill" style="width:82.3%"></div><div class="cmp-ref"></div></div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-top"><span class="cmp-name">한가람 두산 <span>34평</span></span><span class="cmp-val">+35.3%</span></div>
+      <div class="cmp-bar"><div class="cmp-fill" style="width:88.3%"></div><div class="cmp-ref"></div></div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-top"><span class="cmp-name">샘마을임광 <span>37평</span></span><span class="cmp-val">+31.5%</span></div>
+      <div class="cmp-bar"><div class="cmp-fill" style="width:78.8%"></div><div class="cmp-ref"></div></div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-top"><span class="cmp-name">초원성원 <span>34평</span></span><span class="cmp-val">+19.1%</span></div>
+      <div class="cmp-bar"><div class="cmp-fill" style="width:47.8%"></div><div class="cmp-ref"></div></div>
+    </div>
+    <div class="cmp-row">
+      <div class="cmp-top"><span class="cmp-name">삼성래미안 <span>34평</span></span><span class="cmp-val">+8.9%</span></div>
+      <div class="cmp-bar"><div class="cmp-fill" style="width:22.3%"></div><div class="cmp-ref"></div></div>
+    </div>
+    <p class="cmp-note">점선은 동급 7개 단지 중앙값 <b>+13%</b> · 2021년 → 2026년 분기 중앙값 기준</p>
+  </section>
+
+  <p class="foot">
+    <b>출처</b> · 국토교통부 실거래가 공개시스템(매매), 네이버부동산 호가(2026.11.19)<br>
+    평균가는 연도별 신고 거래의 단순 평균이며, 거래가 적은 해는 대표성이 낮을 수 있습니다. 2026년은 1~10월 거래 기준, 거래가 없는 해(79㎡ 2023년 · 104㎡ 2022년)는 공백으로 표시했습니다. 호가는 실제 거래가와 차이가 있을 수 있습니다.
+  </p>
+</main>
+
+<script>
+(function(){
+  "use strict";
+
+  var YEARS = [2021, 2022, 2023, 2024, 2025, 2026];
+
+  var TYPES = [
+    {
+      id: "s55", label: "55㎡", py: "17평", area: "전용 41.09㎡", units: "주력 560세대", color: "#3182F6",
+      values: [4.27, 4.51, 3.64, 3.68, 4.00, 4.82],
+      peak: { v: 6.30, when: "2026.09.22", floor: "11층" },
+      quote: "5.2~8.0억",
+      note: { 2021: "당시 고점 5.70억", 2023: "5년 중 저점", 2026: "9월 신고가 6.30억" },
+      tx: [
+        { d: "2026.10.24", f: "3층", v: 5.675 },
+        { d: "2026.10.23", f: "9층", v: 5.50 },
+        { d: "2026.09.29", f: "5층", v: 6.20 },
+        { d: "2026.09.22", f: "11층", v: 6.30, tag: "신고가" }
+      ]
+    },
+    {
+      id: "s79", label: "79㎡", py: "24평", area: "전용 59.78㎡", units: "24평형", color: "#00B26B",
+      values: [6.67, 6.70, null, 5.70, 6.39, 7.70],
+      peak: { v: 8.00, when: "2026.02.04", floor: "10층" },
+      quote: "10.0~10.15억",
+      note: { 2023: "거래 없음", 2024: "5년 중 저점", 2026: "2월 신고가 8.00억" },
+      tx: [
+        { d: "2026.03.11", f: "7층", v: 7.90 },
+        { d: "2026.02.04", f: "10층", v: 8.00, tag: "신고가" },
+        { d: "2026.02.04", f: "12층", v: 7.20 }
+      ]
+    },
+    {
+      id: "s104", label: "104㎡", py: "34평", area: "전용 84.90㎡", units: "34평형", color: "#7A5AF8",
+      values: [8.30, null, 7.02, 7.62, 8.48, 8.85],
+      peak: { v: 10.90, when: "2026.07.30", floor: "7층" },
+      quote: "10.5~12.8억",
+      note: { 2021: "당시 고점 8.40억", 2022: "거래 없음", 2023: "5년 중 저점", 2025: "연말 9.40억", 2026: "7월 신고가 10.90억" },
+      tx: [
+        { d: "2026.07.30", f: "7층", v: 10.90, tag: "신고가" },
+        { d: "2026.06.02", f: "12층", v: 9.50, tag: "직거래" },
+        { d: "2026.03.11", f: "16층", v: 9.50 }
+      ]
+    }
+  ];
+
+  var NS = "http://www.w3.org/2000/svg";
+  var wrap = document.getElementById("chartWrap");
+  var svg = document.getElementById("chart");
+  var tip = document.getElementById("tip");
+  var state = { mode: "all", hover: null };
+  var geom = null;
+  var lastW = 0;
+
+  /* ---------- helpers ---------- */
+  function fmt(v){
+    if (v === null || v === undefined) return "–";
+    var n = Math.round(v * 1000) / 1000;
+    if (Math.abs(n * 100 - Math.round(n * 100)) < 1e-9) return n.toFixed(2);
+    return n.toFixed(3);
+  }
+  function signed(v){
+    var s = v >= 0 ? "+" : "−";
+    return s + Math.abs(v).toFixed(1) + "%";
+  }
+  function fmtTick(v){
+    return (Math.abs(v - Math.round(v)) < 1e-9) ? String(Math.round(v)) : v.toFixed(1);
+  }
+  function el(name, attrs){
+    var e = document.createElementNS(NS, name);
+    if (attrs) for (var k in attrs) if (Object.prototype.hasOwnProperty.call(attrs, k)) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+  function txt(x, y, s, opts){
+    var t = el("text", Object.assign({ x: x, y: y }, opts || {}));
+    t.textContent = s;
+    return t;
+  }
+
+  /* ---------- chart ---------- */
+  function tickRange(min, max){
+    var cands = [0.5, 1, 2, 5];
+    for (var i = 0; i < cands.length; i++){
+      var step = cands[i];
+      var lo = Math.floor(min / step) * step;
+      var hi = Math.ceil(max / step) * step;
+      var n = (hi - lo) / step;
+      if (n <= 7 && n >= 3) {
+        var ticks = [];
+        for (var t = 0; t <= n + 1e-9; t++) ticks.push(Math.round((lo + t * step) * 100) / 100);
+        return { lo: lo, hi: hi, ticks: ticks };
+      }
+    }
+    var s2 = 1;
+    var lo2 = Math.floor(min / s2) * s2, hi2 = Math.ceil(max / s2) * s2;
+    var tk = [];
+    for (var v = lo2; v <= hi2 + 1e-9; v += s2) tk.push(Math.round(v * 100) / 100);
+    return { lo: lo2, hi: hi2, ticks: tk };
+  }
+
+  function visibleSeries(){
+    return state.mode === "all" ? TYPES : TYPES.filter(function(t){ return t.id === state.mode; });
+  }
+
+  function draw(){
+    var W = Math.floor(wrap.clientWidth);
+    if (!W || W < 200) return;
+    lastW = W;
+    var mob = W < 560;
+    var H = mob ? 272 : 352;
+    var padT = mob ? 40 : 48, padR = mob ? 16 : 26, padB = 34, padL = mob ? 42 : 54;
+
+    svg.setAttribute("width", W);
+    svg.setAttribute("height", H);
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+    var series = visibleSeries();
+    var nums = [];
+    series.forEach(function(t){
+      t.values.forEach(function(v){ if (v !== null) nums.push(v); });
+    });
+    if (!nums.length) return;
+
+    var mn = Math.min.apply(null, nums), mx = Math.max.apply(null, nums);
+    var pad0 = Math.max(0.12, (mx - mn) * 0.06);
+    var tr = tickRange(mn - pad0, mx + pad0);
+    var lo = tr.lo, hi = tr.hi;
+
+    var ih = H - padT - padB;
+    var iw = W - padL - padR;
+    var xs = YEARS.map(function(_, i){ return padL + (iw * i / (YEARS.length - 1)); });
+    function y(v){ return padT + (hi - v) / (hi - lo) * ih; }
+
+    var defs = el("defs");
+    series.forEach(function(t){
+      var g = el("linearGradient", { id: "g-" + t.id, x1: "0", y1: "0", x2: "0", y2: "1" });
+      g.appendChild(el("stop", { offset: "0%", "stop-color": t.color, "stop-opacity": "0.16" }));
+      g.appendChild(el("stop", { offset: "100%", "stop-color": t.color, "stop-opacity": "0" }));
+      defs.appendChild(g);
+    });
+    svg.appendChild(defs);
+
+    /* grid */
+    tr.ticks.forEach(function(v){
+      var yy = y(v);
+      svg.appendChild(el("line", { x1: padL, x2: W - padR, y1: yy, y2: yy, stroke: "#EEF1F4", "stroke-width": 1 }));
+      svg.appendChild(txt(padL - 9, yy + 3.5, fmtTick(v), {
+        "text-anchor": "end", "font-size": mob ? 10 : 11, fill: "#9AA4B1"
+      }));
+    });
+
+    /* x axis */
+    xs.forEach(function(x, i){
+      svg.appendChild(txt(x, H - 12, String(YEARS[i]), {
+        "text-anchor": "middle", "font-size": mob ? 10 : 11, fill: "#9AA4B1", "font-weight": "600"
+      }));
+    });
+
+    /* hover guide */
+    if (state.hover !== null && xs[state.hover] !== undefined){
+      svg.appendChild(el("line", {
+        x1: xs[state.hover], x2: xs[state.hover], y1: padT - 8, y2: padT + ih,
+        stroke: "#C9CDD2", "stroke-width": 1, "stroke-dasharray": "3 4"
+      }));
+    }
+
+    var base = padT + ih;
+
+    series.forEach(function(t){
+      var pts = t.values.map(function(v, i){ return v === null ? null : { x: xs[i], y: y(v), v: v }; });
+
+      /* area under line (single view only) */
+      if (state.mode !== "all"){
+        var run = [];
+        var flushArea = function(){
+          if (run.length > 1){
+            var d = "M " + run[0].x + " " + base + " L " + run.map(function(p){ return p.x + " " + p.y; }).join(" L ") +
+                    " L " + run[run.length - 1].x + " " + base + " Z";
+            svg.appendChild(el("path", { d: d, fill: "url(#g-" + t.id + ")", stroke: "none" }));
+          }
+          run = [];
+        };
+        pts.forEach(function(p){ if (p) run.push(p); else flushArea(); });
+        flushArea();
+      }
+
+      /* dashed bridge over missing years */
+      for (var i = 1; i < pts.length - 1; i++){
+        if (!pts[i] && pts[i - 1] && pts[i + 1]){
+          svg.appendChild(el("line", {
+            x1: pts[i - 1].x, y1: pts[i - 1].y, x2: pts[i + 1].x, y2: pts[i + 1].y,
+            stroke: t.color, "stroke-width": 1.6, "stroke-dasharray": "4 4",
+            "stroke-opacity": 0.4, "stroke-linecap": "round"
+          }));
+          var my = (pts[i - 1].y + pts[i + 1].y) / 2;
+          svg.appendChild(el("circle", { cx: xs[i], cy: my, r: 3.2, fill: "#fff", stroke: "#C9CDD2", "stroke-width": 1.4 }));
+          if (state.mode !== "all"){
+            svg.appendChild(txt(xs[i], my - 9, "거래 없음", {
+              "text-anchor": "middle", "font-size": 9.5, fill: "#9AA4B1", "font-weight": "600",
+              stroke: "#fff", "stroke-width": 3, "paint-order": "stroke"
+            }));
+          }
+        }
+      }
+
+      /* line */
+      var seg = [];
+      var flushLine = function(){
+        if (seg.length > 1){
+          svg.appendChild(el("path", {
+            d: "M " + seg.map(function(p){ return p.x + " " + p.y; }).join(" L "),
+            fill: "none", stroke: t.color,
+            "stroke-width": state.mode === "all" ? 2.4 : 2.8,
+            "stroke-linecap": "round", "stroke-linejoin": "round"
+          }));
+        }
+        seg = [];
+      };
+      pts.forEach(function(p){ if (p) seg.push(p); else flushLine(); });
+      flushLine();
+
+      /* points */
+      pts.forEach(function(p, i){
+        if (!p) return;
+        var on = state.hover === i;
+        svg.appendChild(el("circle", {
+          cx: p.x, cy: p.y, r: on ? 6 : 4, fill: "#fff", stroke: t.color,
+          "stroke-width": on ? 3 : 2.2
+        }));
+      });
+
+      /* value labels */
+      if (state.mode !== "all"){
+        pts.forEach(function(p, i){
+          if (!p) return;
+          var anchor = (i === 0) ? "start" : "middle";
+          var lx = (i === 0) ? p.x + 4 : p.x;
+          svg.appendChild(txt(lx, p.y - 11, fmt(p.v), {
+            "text-anchor": anchor, "font-size": 11.5, "font-weight": "700", fill: "#191F28",
+            stroke: "#fff", "stroke-width": 3, "stroke-linejoin": "round", "paint-order": "stroke"
+          }));
+        });
+      } else {
+        var lastP = pts[pts.length - 1];
+        if (lastP){
+          svg.appendChild(txt(Math.min(lastP.x, W - padR - 14), lastP.y - 12, fmt(lastP.v), {
+            "text-anchor": "middle", "font-size": 10.5, "font-weight": "700", fill: t.color,
+            stroke: "#fff", "stroke-width": 3, "stroke-linejoin": "round", "paint-order": "stroke"
+          }));
+        }
+      }
+    });
+
+    geom = { xs: xs, W: W, H: H, padT: padT, padR: padR, series: series, y: y };
+  }
+
+  /* ---------- tooltip ---------- */
+  function nearestIndex(clientX){
+    if (!geom) return null;
+    var rect = svg.getBoundingClientRect();
+    var x = clientX - rect.left;
+    var best = 0, bd = Infinity;
+    geom.xs.forEach(function(px, i){
+      var d = Math.abs(px - x);
+      if (d < bd){ bd = d; best = i; }
+    });
+    return best;
+  }
+
+  function showTip(i){
+    if (!geom || geom.xs[i] === undefined) return;
+    var year = YEARS[i];
+    var html = '<div class="tip-h">' + year + "년</div>";
+
+    if (state.mode === "all"){
+      geom.series.forEach(function(t){
+        var v = t.values[i];
+        html += '<div class="tip-row"><i style="background:' + t.color + '"></i><span>' + t.label +
+                "</span><b>" + (v === null ? "거래 없음" : fmt(v) + "억") + "</b></div>";
+      });
+    } else {
+      var t2 = geom.series[0];
+      var v2 = t2.values[i];
+      if (v2 === null){
+        html += '<div class="tip-big">거래 없음</div><div class="tip-note">이 해에는 신고된 매매가 없어요</div>';
+      } else {
+        html += '<div class="tip-big">' + fmt(v2) + "억</div>";
+        var nt = t2.note && t2.note[year];
+        if (nt) html += '<div class="tip-note">' + nt + "</div>";
+      }
+    }
+
+    tip.innerHTML = html;
+    tip.classList.add("on");
+
+    var tw = tip.offsetWidth, th = tip.offsetHeight;
+    var x0 = geom.xs[i];
+    var left = (geom.W - x0 > tw + 26) ? x0 + 14 : x0 - tw - 14;
+    left = Math.max(4, Math.min(left, geom.W - tw - 4));
+
+    var ys = [];
+    geom.series.forEach(function(t){
+      var v = t.values[i];
+      if (v !== null) ys.push(geom.y(v));
+    });
+    var top;
+    if (ys.length){
+      var yc = (Math.min.apply(null, ys) + Math.max.apply(null, ys)) / 2;
+      top = yc - th / 2;
+    } else {
+      top = geom.padT;
+    }
+    top = Math.max(4, Math.min(top, geom.H - th - 4));
+
+    tip.style.left = left + "px";
+    tip.style.top = top + "px";
+  }
+
+  function hideTip(){
+    tip.classList.remove("on");
+  }
+
+  /* ---------- pointer ---------- */
+  var tapping = false;
+
+  wrap.addEventListener("pointermove", function(e){
+    if (e.pointerType === "touch") return;
+    var i = nearestIndex(e.clientX);
+    if (i === null) return;
+    if (state.hover !== i){
+      state.hover = i;
+      draw();
+    }
+    showTip(i);
+  });
+
+  wrap.addEventListener("pointerleave", function(){
+    if (state.hover !== null){
+      state.hover = null;
+      hideTip();
+      draw();
+    }
+  });
+
+  wrap.addEventListener("pointerdown", function(e){
+    tapping = true;
+    var i = nearestIndex(e.clientX);
+    if (i === null) return;
+    state.hover = i;
+    draw();
+    showTip(i);
+  });
+
+  document.addEventListener("pointerdown", function(e){
+    if (tapping){ tapping = false; return; }
+    if (!wrap.contains(e.target) && state.hover !== null){
+      state.hover = null;
+      hideTip();
+      draw();
+    }
+  });
+
+  /* ---------- stats ---------- */
+  function statsFor(t){
+    var last = t.values[t.values.length - 1];
+    var first = t.values[0];
+    var nums = t.values.filter(function(v){ return v !== null; });
+    var min = Math.min.apply(null, nums);
+    var minIdx = t.values.indexOf(min);
+    var isPeakLatest = (t.tx[0].v === t.peak.v && t.tx[0].d === t.peak.when);
+    var recent = isPeakLatest ? t.tx[1] : t.tx[0];
+    return [
+      { k: "2026년 평균", v: fmt(last) + "억", s: "2026년 1~10월 거래" },
+      { k: "역대 신고가", v: fmt(t.peak.v) + "억", s: t.peak.when + " · " + t.peak.floor },
+      { k: isPeakLatest ? "직전 거래" : "최근 실거래", v: fmt(recent.v) + "억", s: recent.d + " · " + recent.f + (recent.tag ? " · " + recent.tag : "") },
+      { k: "현재 호가", v: t.quote, s: "2026.11.19 네이버 기준" },
+      { k: "5년 전 대비", v: signed((last - first) / first * 100), s: "2021년 " + fmt(first) + "억", cls: "up" },
+      { k: "저점 대비", v: signed((last - min) / min * 100), s: YEARS[minIdx] + "년 " + fmt(min) + "억", cls: "up" }
+    ];
+  }
+
+  function renderStats(){
+    var box = document.getElementById("stats");
+    if (state.mode === "all"){
+      box.className = "typerows";
+      box.innerHTML = TYPES.map(function(t){
+        var last = t.values[t.values.length - 1], first = t.values[0];
+        var chg = (last - first) / first * 100;
+        return '<div class="typerow" data-id="' + t.id + '">' +
+          '<div class="tr-name"><i style="background:' + t.color + '"></i><b>' + t.label +
+          "</b><span>" + t.py + "</span></div>" +
+          '<div class="tr-mid"><b>' + fmt(last) + "억</b><span>2026 평균</span></div>" +
+          '<div class="tr-right"><b class="up">' + signed(chg) + "</b><span>5년 전 대비</span></div>" +
+          "</div>";
+      }).join("");
+      Array.prototype.forEach.call(box.querySelectorAll(".typerow"), function(r){
+        r.addEventListener("click", function(){ setMode(r.getAttribute("data-id")); });
+      });
+    } else {
+      var t2 = TYPES.filter(function(x){ return x.id === state.mode; })[0];
+      box.className = "stats";
+      box.innerHTML = statsFor(t2).map(function(c){
+        return '<div class="stat"><p class="k">' + c.k + '</p><p class="v ' + (c.cls || "") + '">' + c.v +
+               '</p><p class="s">' + c.s + "</p></div>";
+      }).join("");
+    }
+  }
+
+  /* ---------- transactions ---------- */
+  function renderTx(){
+    var box = document.getElementById("txlist");
+    var list = state.mode === "all" ? TYPES : TYPES.filter(function(t){ return t.id === state.mode; });
+    box.innerHTML = list.map(function(t){
+      var head = state.mode === "all"
+        ? '<div class="tx-group"><i style="background:' + t.color + '"></i>' + t.label + " <span>" + t.py + "</span></div>"
+        : "";
+      var rows = t.tx.map(function(x){
+        var badge = x.tag ? '<span class="badge' + (x.tag === "신고가" ? "" : " gray") + '">' + x.tag + "</span>" : "";
+        return '<div class="tx"><span class="tx-d">' + x.d + '</span><span class="tx-f">' + x.f +
+               '</span><span class="tx-p">' + fmt(x.v) + "억</span>" + badge + "</div>";
+      }).join("");
+      return '<div class="tx-block">' + head + rows + "</div>";
+    }).join("");
+  }
+
+  /* ---------- header / legend ---------- */
+  function updateHeader(){
+    var title = document.getElementById("chartTitle");
+    var sub = document.getElementById("chartSub");
+    var hint = document.getElementById("statHint");
+    if (state.mode === "all"){
+      title.textContent = "평형별 연도별 평균 매매가";
+      sub.textContent = "단위: 억 원 · 2026년은 1~10월 거래 평균";
+      hint.textContent = "평형을 누르면 자세히";
+    } else {
+      var t = TYPES.filter(function(x){ return x.id === state.mode; })[0];
+      title.textContent = t.label + " (" + t.area + " · " + t.py + ") 평균 매매가";
+      sub.textContent = "단위: 억 원 · 2026년 1~10월 평균 · 역대 신고가 " + fmt(t.peak.v) + "억";
+      hint.textContent = t.area + " · " + t.units;
+    }
+  }
+
+  var legend = document.getElementById("legend");
+  legend.innerHTML = TYPES.map(function(t){
+    return '<button data-id="' + t.id + '"><i style="background:' + t.color + '"></i>' + t.label + " (" + t.py + ")</button>";
+  }).join("");
+  Array.prototype.forEach.call(legend.querySelectorAll("button"), function(b){
+    b.addEventListener("click", function(){ setMode(b.getAttribute("data-id")); });
+  });
+
+  function updateLegend(){
+    legend.style.display = state.mode === "all" ? "flex" : "none";
+  }
+
+  /* ---------- mode switch ---------- */
+  function setMode(id){
+    state.mode = id;
+    state.hover = null;
+    hideTip();
+    Array.prototype.forEach.call(document.querySelectorAll("#seg button"), function(b){
+      if (b.getAttribute("data-id") === id) b.classList.add("on"); else b.classList.remove("on");
+    });
+    updateHeader();
+    updateLegend();
+    renderStats();
+    renderTx();
+    draw();
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("#seg button"), function(b){
+    b.addEventListener("click", function(){
+      var id = b.getAttribute("data-id");
+      if (state.mode !== id) setMode(id);
+    });
+  });
+
+  /* ---------- resize ---------- */
+  function onResize(){
+    if (!wrap.clientWidth) return;
+    if (Math.abs(wrap.clientWidth - lastW) < 1) return;
+    draw();
+    if (state.hover !== null) showTip(state.hover);
+  }
+  if (window.ResizeObserver){
+    new ResizeObserver(onResize).observe(wrap);
+  } else {
+    window.addEventListener("resize", onResize);
+  }
+  window.addEventListener("orientationchange", function(){ setTimeout(onResize, 120); });
+
+  /* ---------- init ---------- */
+  updateHeader();
+  updateLegend();
+  renderStats();
+  renderTx();
+  draw();
+  setTimeout(draw, 60);
+})();
+</script>
+</body>
+</html>
